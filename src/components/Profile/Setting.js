@@ -1,0 +1,57 @@
+import React from "react";
+import styled from "styled-components";
+import gearicon from '../../assets/images/gear.png';
+import etherLogo from '../../assets/images/Ethereum_Logo.png';
+
+const Conatiner=styled.div`
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+`;
+
+const WalletInfo=styled.div`
+    width: 220px;
+    height: 48px;
+    background: #1E1A2F;
+    border-radius: 100px;
+    padding: 15px 20px 15px 48px;
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    &:before{
+        content: '';
+        position: absolute;
+        background: url(${etherLogo}) no-repeat center;
+        width: 32px;
+        height: 32px;
+        margin-left: -42px;
+        margin-top: -7px
+    }
+`;
+
+const SetBtn=styled.div`
+    width: 48px;
+    height: 48px;
+    background: #1E1A2F;
+    border-radius: 50%;
+    padding: 14px;
+    margin-left:12px;
+    cursor:pointer;
+`;
+
+
+const Setting = ()=>{
+    return (
+        <Conatiner>
+            <WalletInfo>
+                {/* <EtherLogo src={etherLogo} /> */}
+                0x314413...fee810
+            </WalletInfo>
+            <SetBtn>
+                <img src={gearicon} />
+            </SetBtn>
+        </Conatiner>
+    )
+};
+
+export default Setting;

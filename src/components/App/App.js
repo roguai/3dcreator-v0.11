@@ -17,8 +17,9 @@ export const Conatiner = styled.div`
   position: fixed;
   top: 80px;
   left: 72px;
-  width: 100%;
-  height: 100%;
+  right:0;
+  bottom:0;
+  overflow:hidden;
 `;
 
 const App = () => {
