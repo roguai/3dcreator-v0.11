@@ -47,6 +47,10 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+
+    select::-ms-expand {
+        display: none;
+      }
 `;
 
 const Provider = ({children})=>{

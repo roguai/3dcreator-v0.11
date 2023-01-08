@@ -1,9 +1,12 @@
 import React, {useState, useEffect, useContext} from "react";
 import Provider from "../shared/Provider/Provider";
-
+import useMainHook from "../../hooks/useMainHook";
 const AppContext=React.createContext();
 
 const AppProvider=({children})=>{
+    const {
+        state, toggleModal, changeProfile
+    } = useMainHook();
     const [windowWidth, setWindowWidth]=useState(window.innerWidth);
     useEffect(()=>{
         window.addEventListener('resize', handleResize);
@@ -19,7 +22,10 @@ const AppProvider=({children})=>{
     return (
         <AppContext.Provider
             value={{
-                windowWidth
+                windowWidth,
+                state,
+                toggleModal,
+                changeProfile
             }}
         >
             <Provider>{children}</Provider>

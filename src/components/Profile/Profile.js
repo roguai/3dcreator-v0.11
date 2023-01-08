@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import avatarimg from '../../assets/images/user.png';
-import Setting from "./Setting";
+import ProfileInfo from "./ProfileInfo";
+import ProfileSetting from './ProfileSetting';
+
 
 const Conatiner = styled.div`
     border-radius:15px 15px 0 0;
@@ -13,36 +14,34 @@ const Conatiner = styled.div`
     background:${({ theme }) => theme.colors.sidebarbg};
     backdrop-filter: blur(6px);
     text-align:center;
+    overflow-y:auto;
+    &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
 `;
 
-const Avatar = styled.img`
-    width:170px;
-    height:170px;
-    margin-top:35px;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius:50%;
+const Panel = styled.div`
+    margin-bottom:40px;
 `;
 
-const UserName = styled.p`
-    margin-top: 15px;
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 34px;
-`;
-
-
-const Message = styled.p``;
-
-const TabMenu = styled.div``;
 
 const Profile = () => {
+    const [isSetting, setIsSetting] = useState(false);
+
     return (
         <Conatiner>
+            <Panel>
 
-            <Avatar src={avatarimg} />
-            <UserName>Unnamed</UserName>
-            <Setting />
+                {!isSetting && 
+                    <ProfileInfo 
+                        setIsSetting={setIsSetting}
+                    />}
+                {isSetting && 
+                    <ProfileSetting 
+                        setIsSetting={setIsSetting}
+                    />}
+
+            </Panel>
         </Conatiner>
     );
 }

@@ -5,7 +5,7 @@ import { useGlobalContext } from './context';
 import Profile from '../Profile/Profile';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
-
+import Modal from '../Modal';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,14 +19,16 @@ export const Conatiner = styled.div`
   left: 72px;
   right:0;
   bottom:0;
-  overflow:hidden;
+  overflow:auto;
 `;
 
 const App = () => {
   const { state } = useGlobalContext();
+  const isModalOpen=state.isModalOpen.status;
 
   return (
     <Wrapper>
+      {isModalOpen && <Modal />}
       <Header />
       <Sidebar />
       <Conatiner>
