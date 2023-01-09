@@ -1,45 +1,48 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 import menuicon from '../../assets/images/menu.png';
 import wheelicon from '../../assets/images/wheel.png';
 import asseticon from '../../assets/images/assets.png';
 import signouticon from '../../assets/images/signout.png';
 import charticon from '../../assets/images/chart.png';
+import wheelselectIcon from '../../assets/images/wheel_select.png';
 
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Container=styled.div`
+const Container = styled.div`
     border-radius: 15px 15px 0 0;
     width:60px;
     left:10px;
     position:fixed;
     top:80px;
-    background:${({theme})=>theme.colors.sidebarbg};
+    background:${({ theme }) => theme.colors.sidebarbg};
     bottom:0px;
     backdrop-filter: blur(6px);
 `;
 
-const MenuItem=styled(Link)`
+const MenuItem = styled(NavLink)`
     height: 40px;
     width: 40px;
     margin: 8px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    
+    border-radius: 8px;   
     cursor:pointer;
+
     &:hover{
         background: rgba(255, 255, 255, 0.08);
     }
+
+
 `;
 
-const Menu=styled.div`
+const Menu = styled.div`
     margin-top:15px;
 `;
 
-const SignOut=styled.div`
+const SignOut = styled.div`
     position: absolute;
     bottom: 43px;
     margin-left:10px;
@@ -55,37 +58,48 @@ const SignOut=styled.div`
     }
 `;
 
-const links=[
+const links = [
     {
-        to:'/profile',
+        to: '/profile',
         icon: menuicon
     },
     {
-        to:'/assetcreator',
+        to: '/assetcreator',
         icon: wheelicon
     },
     {
-        to:'/profile',
+        to: '/profile',
         icon: asseticon
     },
     {
-        to:'/profile',
+        to: '/profile',
         icon: charticon
     }
 ]
 
-const Sidebar=()=>{
+const Sidebar = () => {
     return (
         <Container>
             <Menu>
                 {
-                    links.map((v,index)=>(
-                        <MenuItem key={index} to={v.to}>
+                    links.map((v, index) => (
+                        <MenuItem
+                            key={index}
+                            to={v.to}
+                            icon={v.icon}
+                            className={({ isActive, isPending }) =>
+                                isActive
+                                    ? "active"
+                                    : isPending
+                                        ? "pending"
+                                        : ""
+                            }
+                        >
                             <img src={v.icon} />
                         </MenuItem>
                     ))
                 }
-                
+
             </Menu>
             <SignOut>
                 <img src={signouticon} />

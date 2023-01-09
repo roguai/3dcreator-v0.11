@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 import { useGlobalContext } from "../App/context";
 import avatar from '../../assets/images/Ikbal.png';
 import etherLogo from '../../assets/images/Ethereum_Logo.png';
@@ -84,12 +85,16 @@ const Price=styled.div`
     }
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
     border-radius:50%;
     border:0;
     cursor:pointer;
     width:36px;
     height:36px;
+    align-items: center;
+    display: flex;
+    justify-content:center;
+}
 `;
 
 const BtnGroup=styled.div`
@@ -125,7 +130,7 @@ const AssetsCard=()=>{
                 </Price>
             </PricePan>
             <BtnGroup className="btngroup">
-                <Button style={{background:'#3B82F6'}}>
+                <Button style={{background:'#3B82F6'}} to='/assetcreator'>
                     <img src={editIcon} />
                 </Button>
                 <Button style={{background:'#F2994A'}}>
