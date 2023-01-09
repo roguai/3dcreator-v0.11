@@ -1,17 +1,13 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Wrapper from '../shared/Wrapper/Wrapper';
 import { useGlobalContext } from './context';
-import Profile from '../Profile/Profile';
+
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 import Modal from '../Modal';
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Profile />
-  }
-]);
+
+
 
 export const Conatiner = styled.div`
   position: fixed;
@@ -24,7 +20,7 @@ export const Conatiner = styled.div`
 
 const App = () => {
   const { state } = useGlobalContext();
-  const isModalOpen=state.isModalOpen.status;
+  const isModalOpen = state.isModalOpen.status;
 
   return (
     <Wrapper>
@@ -32,7 +28,7 @@ const App = () => {
       <Header />
       <Sidebar />
       <Conatiner>
-        <RouterProvider router={router} />
+        <Outlet />
       </Conatiner>
 
     </Wrapper>

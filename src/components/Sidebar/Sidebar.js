@@ -7,6 +7,8 @@ import asseticon from '../../assets/images/assets.png';
 import signouticon from '../../assets/images/signout.png';
 import charticon from '../../assets/images/chart.png';
 
+import {Link} from 'react-router-dom';
+
 const Container=styled.div`
     border-radius: 15px 15px 0 0;
     width:60px;
@@ -18,7 +20,7 @@ const Container=styled.div`
     backdrop-filter: blur(6px);
 `;
 
-const MenuItem=styled.li`
+const MenuItem=styled(Link)`
     height: 40px;
     width: 40px;
     margin: 8px auto;
@@ -33,7 +35,7 @@ const MenuItem=styled.li`
     }
 `;
 
-const Menu=styled.ul`
+const Menu=styled.div`
     margin-top:15px;
 `;
 
@@ -53,22 +55,37 @@ const SignOut=styled.div`
     }
 `;
 
+const links=[
+    {
+        to:'/profile',
+        icon: menuicon
+    },
+    {
+        to:'/assetcreator',
+        icon: wheelicon
+    },
+    {
+        to:'/profile',
+        icon: asseticon
+    },
+    {
+        to:'/profile',
+        icon: charticon
+    }
+]
+
 const Sidebar=()=>{
     return (
         <Container>
             <Menu>
-                <MenuItem>
-                    <img src={menuicon} />
-                </MenuItem>
-                <MenuItem>
-                    <img src={wheelicon} />
-                </MenuItem>
-                <MenuItem>
-                    <img src={asseticon} />
-                </MenuItem>
-                <MenuItem>
-                    <img src={charticon} />
-                </MenuItem>
+                {
+                    links.map((v,index)=>(
+                        <MenuItem key={index} to={v.to}>
+                            <img src={v.icon} />
+                        </MenuItem>
+                    ))
+                }
+                
             </Menu>
             <SignOut>
                 <img src={signouticon} />
