@@ -18,4 +18,10 @@ export const mainReducer=(state, action)=>{
             }
         }
     }
+    else if(action.type===ACTION_TYPES.CHANGE_THEME){
+        return {
+            ...state,
+            theme:action.payload.theme
+        }
+    }
 }

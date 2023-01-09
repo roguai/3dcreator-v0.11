@@ -11,7 +11,7 @@ const Card=styled.div`
     width:215px;
     height:320px;
     border-radius:8px;
-    background:${({theme})=>theme.colors.assetcardbg};
+    background:#141325;
     padding:10px;
     text-align:left;
     position:relative;
@@ -29,7 +29,7 @@ const Img=styled.img`
     height:200px;
     width:195px;
     padding:20px 17px;
-    background:${({theme})=>theme.colors.assetcardimgbg};
+    background:#1B1A2C;
     border-radius:8px;
 `;
 

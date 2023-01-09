@@ -19,22 +19,38 @@ const Container=styled.div`
 `;
 
 const MenuItem=styled.li`
-    width: 100%;
-    text-align: center;
-    margin-top: 24px;
-    margin-bottom: 12px;
+    height: 40px;
+    width: 40px;
+    margin: 8px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    
     cursor:pointer;
+    &:hover{
+        background: rgba(255, 255, 255, 0.08);
+    }
 `;
 
 const Menu=styled.ul`
+    margin-top:15px;
 `;
 
 const SignOut=styled.div`
     position: absolute;
     bottom: 43px;
-    text-align: center;
-    width: 100%;
+    margin-left:10px;
+    height: 40px;
+    width: 40px;
     cursor:pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    &:hover{
+        background: rgba(255, 255, 255, 0.08);
+    }
 `;
 
 const Sidebar=()=>{

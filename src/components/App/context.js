@@ -28,7 +28,7 @@ const AppProvider=({children})=>{
                 changeProfile
             }}
         >
-            <Provider>{children}</Provider>
+            <Provider themeColor={state.theme}>{children}</Provider>
         </AppContext.Provider>
     )
 };

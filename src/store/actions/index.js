@@ -13,3 +13,10 @@ export const changeProfile=(username)=>{
         payload:{username: username}
     }
 }
+
+export const changeTheme=(theme)=>{
+    return {
+        type:ACTION_TYPES.CHANGE_THEME,
+        payload: {theme:theme}
+    }
+}

@@ -53,10 +53,10 @@ const GlobalStyle = createGlobalStyle`
       }
 `;
 
-const Provider = ({children})=>{
+const Provider = ({children, themeColor})=>{
     return (
         <ThemeProvider
-            theme={theme}
+            theme={themeColor==='default'? theme.default : theme.yellow}
         >
             <GlobalStyle />
             {children}

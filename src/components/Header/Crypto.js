@@ -28,7 +28,7 @@ const PlusBtn=styled.div`
     width:20px;
     height:20px;
     border-radius:5px;
-    background: ${({theme})=>theme.colors.plusbtn};
+    background: #1F1B30;
     margin-left:6px;
     text-align:center;
 `;

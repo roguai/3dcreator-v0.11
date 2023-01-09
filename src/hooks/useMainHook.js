@@ -6,7 +6,8 @@ const initialState={
     isModalOpen:{status:false, name:''},
     profile:{
         username:'Unnamed'
-    }
+    },
+    theme:'default'
 };
 
 const useMainHook=()=>{
@@ -20,10 +21,15 @@ const useMainHook=()=>{
         dispatch(ACTIONS.changeProfile(username));
     }
 
+    const changeTheme=(theme)=>{
+        dispatch(ACTIONS.changeTheme(theme));
+    }
+
     return {
         state, 
         toggleModal,
-        changeProfile
+        changeProfile,
+        changeTheme
     }
 };
 
