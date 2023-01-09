@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 import {useGlobalContext} from '../App/context';
 import ModalDelete from "./ModalDelete";
+import ModalProfileImgChange from "./ModalProfileImgChange";
 
 const StyledModal=styled.div`
     position:fixed;
@@ -19,6 +20,7 @@ const Modal = ()=>{
     const modalRef=useRef();
     const {state, toggleModal}=useGlobalContext();
     const isDeleteModal=state.isModalOpen.name==='delete';
+    const isProfileModal=state.isModalOpen.name==='profileimg';
     const handleClickOutsideModal=(event)=>{
         const target=event.target;
         if(target===modalRef.current) toggleModal();
@@ -40,6 +42,7 @@ const Modal = ()=>{
             
         >
             {isDeleteModal && <ModalDelete />}
+            {isProfileModal && <ModalProfileImgChange />}
         </StyledModal>
     );
 

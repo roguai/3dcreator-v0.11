@@ -55,7 +55,15 @@ const SetBtn = styled.div`
 `;
 
 const WelcomMsg=styled.p`
+    font-size:16px;
+    line-height:22.4px;
+    font-weight:500;
+    width:500px;
+    margin:28px auto 0 auto;
 
+    & #username{
+        color:#6AFFE5;
+    }
 `;
 
 const ProfileInfo = ({setIsSetting}) => {
@@ -72,11 +80,21 @@ const ProfileInfo = ({setIsSetting}) => {
                     {/* <EtherLogo src={etherLogo} /> */}
                     0x314413...fee810
                 </WalletInfo>
-                <SetBtn>
+                <SetBtn
+                    onClick={()=>{
+                        setIsSetting(true);
+                    }}
+                >
                     <img src={gearicon} />
                 </SetBtn>
             </Nav>
-
+            <WelcomMsg
+                style={{
+                    display: username==='Unnamed'?'none':'auto'
+                }}
+            >
+                Welcome to the second collection of World of Avatars! Created and Illustrated by <span id="username">{username}</span>
+            </WelcomMsg>
             <MyAssets />
         </Conatiner>
     )

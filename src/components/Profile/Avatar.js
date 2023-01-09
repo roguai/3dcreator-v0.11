@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import avatarimg from '../../assets/images/user.png';
 import editIcon from '../../assets/images/edit.png';
+import { useGlobalContext } from "../App/context";
 
 const Conatiner = styled.div`
     
@@ -39,11 +40,17 @@ const EditBtn = styled.img`
 `;
 
 const Avatar = ({setIsSetting}) => {
+    const {toggleModal}=useGlobalContext();
+
     return (
         <Conatiner>
             <Avatarpan
                 onClick={()=>{
-                    setIsSetting(true);
+                    if(setIsSetting){
+                        setIsSetting(true);
+                    }
+
+                    toggleModal('profileimg');
                 }}
             >
                 <AvatarImg id="avatarimg" src={avatarimg} />
