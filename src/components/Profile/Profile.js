@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useGlobalContext } from "../App/context";
 
 import ProfileInfo from "./ProfileInfo";
 import ProfileSetting from './ProfileSetting';
@@ -26,7 +27,11 @@ const Panel = styled.div`
 
 
 const Profile = () => {
+    const {changeTheme}=useGlobalContext();
     const [isSetting, setIsSetting] = useState(false);
+    useEffect(()=>{
+        changeTheme('default');
+    },[]);
 
     return (
         <Conatiner>

@@ -5,7 +5,7 @@ const AppContext=React.createContext();
 
 const AppProvider=({children})=>{
     const {
-        state, toggleModal, changeProfile
+        state, toggleModal, changeProfile, changeTheme
     } = useMainHook();
     const [windowWidth, setWindowWidth]=useState(window.innerWidth);
     useEffect(()=>{
@@ -25,7 +25,8 @@ const AppProvider=({children})=>{
                 windowWidth,
                 state,
                 toggleModal,
-                changeProfile
+                changeProfile,
+                changeTheme
             }}
         >
             <Provider themeColor={state.theme}>{children}</Provider>
