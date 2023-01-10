@@ -1,15 +1,28 @@
 import { useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ReactComponent as DeployIcon } from '../../assets/images/Clip board.svg';
 import { ReactComponent as DownloadIcon } from '../../assets/images/Download2.svg';
 import { ReactComponent as InformIcon } from '../../assets/images/Information-circle.svg';
 import { ReactComponent as ArrowDownIcon } from '../../assets/images/arrow-down.svg';
+import { ReactComponent as CloseIcon } from '../../assets/images/Close.svg';
+import { ReactComponent as CheckIcon } from '../../assets/images/checkicon.svg';
+
 
 const Conatiner = styled.div`
     width:320px;
     margin:0 24px;
     height:100%;
+
+    & .Toastify__toast{
+        background:transparent;
+    } 
+    & .Toastify__close-button{
+        display:none;
+    }
 `;
 const MainBtnGroup = styled.div`
     width:320px;
@@ -172,14 +185,59 @@ const StyledBorder = styled.div`
     background: radial-gradient(50% 3591199.86% at 50% 50.09%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 78.98%, rgba(255, 255, 255, 0) 100%);
 `;
 
-const SelectPan = styled.div``;
+const MsgContainer = styled.div`
+    font-size:16px;
+    line-height:22px;
+    font-weight:400;
+    color:white;
+    padding: 19px 44px 19px 60px;
+    border-radius:12px;
+    border:solid 1px ${({ theme }) => theme.colors.mainColor};
+    background:#05141E;
+    width:395px;
+    margin-top:40px;
+    & #check{
+        position: absolute;
+        margin-left: -44px;
+        margin-top: -6px;
+    }
+    & #close{
+        position: absolute;
+        right: 29px;
+        margin-top: 3px;
+    }
+`;
+const Msg = ({closeToast}) => (
+    <MsgContainer>
+        <CheckIcon id="check" />
+        Your asset has been saved
+        <CloseIcon 
+            id="close"
+            onClick={closeToast}
+        />
+    </MsgContainer>
+);
+
 const DeployContainer = () => {
     const theme = useTheme();
     const [deployBtn, setDeployBtn] = useState(true);
-    const [displayName, setDisplayName]=useState('');
-    const [description, setDescription]=useState('');
+    const [displayName, setDisplayName] = useState('');
+    const [description, setDescription] = useState('');
+
+    const handleSave = () => {
+        toast(<Msg />);
+    }
     return (
         <Conatiner>
+            <ToastContainer
+                position="top-right"
+                autoClose="3000"
+                hideProgressBar={true}
+                style={{
+                    width:'433px',
+                    
+                }}
+            />
             <MainBtnGroup>
                 <MainBtn
                     $active={deployBtn}
@@ -204,20 +262,20 @@ const DeployContainer = () => {
 
                 <InputGroup>
                     <Label>Display name</Label>
-                    <Input 
-                        type="text" 
-                        placeholder="Enter asset name" 
+                    <Input
+                        type="text"
+                        placeholder="Enter asset name"
                         value={displayName}
-                        onChange={(e)=>{
+                        onChange={(e) => {
                             setDisplayName(e.target.value);
                         }}
                     />
                 </InputGroup>
                 <InputGroup>
                     <Label>Description</Label>
-                    <TextArea 
+                    <TextArea
                         value={description}
-                        onChange={(e)=>{
+                        onChange={(e) => {
                             setDescription(e.target.value);
                         }}
                         placeholder="Enter description here"
@@ -226,7 +284,7 @@ const DeployContainer = () => {
                 <InputGroup>
                     <Label>Location</Label>
                     <StyledInput>
-                        <input type={"text"} readOnly value={"Select world"}/>
+                        <input type={"text"} readOnly value={"Select world"} />
                         <InformIcon id="informicon" />
                         <ArrowDownIcon id="arrowdownicon" />
 
@@ -236,7 +294,7 @@ const DeployContainer = () => {
                 <InputGroup>
                     <Label>Blockchain</Label>
                     <StyledInput>
-                        <input type={"text"} readOnly value={"Select blockchain type"}/>
+                        <input type={"text"} readOnly value={"Select blockchain type"} />
                         <InformIcon id="informicon" />
                         <ArrowDownIcon id="arrowdownicon" />
                     </StyledInput>
@@ -245,13 +303,17 @@ const DeployContainer = () => {
                 <InputGroup>
                     <Label>Total</Label>
                     <StyledInput>
-                        <input type={"text"} value="50,000"/>
+                        <input type={"text"} value="50,000" />
                         <p>REIGN</p>
                     </StyledInput>
                 </InputGroup>
 
                 <BtnGroup>
-                    <BottomBtn>
+                    <BottomBtn
+                        onClick={() => {
+                            handleSave();
+                        }}
+                    >
                         Save
                     </BottomBtn>
                     <BottomBtn

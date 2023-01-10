@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import upIcon from '../../assets/images/up.png';
+import styled, {useTheme} from "styled-components";
+import {ReactComponent as UpIcon} from '../../assets/images/drop-up.svg';
 
 const Container = styled.div`
     // width:280px;
@@ -43,6 +43,7 @@ const Banner = styled.div`
 
 
 const ProgressBar = ({ value }) => {
+    const theme=useTheme();
     return (
 
         <Container>
@@ -53,7 +54,7 @@ const ProgressBar = ({ value }) => {
             </div>
 
             <Banner>
-                <img className="up" src={upIcon} />
+                <UpIcon className="up" fill={theme.colors.mainColor} />
                 12
             </Banner>
         </Container>

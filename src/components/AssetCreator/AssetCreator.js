@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useGlobalContext } from "../App/context";
 import AssetContainer from "./AssetContainer";
 import DeployContainer from "./DeployContainer";
 import PreviewCharactor from "./PreviewCharactor";
+import models from "./models";
 
 const Container=styled.div`
     height: 100%;
@@ -18,11 +19,19 @@ const AssetCreator = ()=>{
     useEffect(()=>{
         changeTheme('yellow');
     },[]);
+    const [charactor, setCharactor]=useState(models.templates.charactors[0])
+    const handleChangeCharactor=(c)=>{
+        setCharactor(c);
+    }
     return (
         <Container>
-            <AssetContainer />
+            <AssetContainer 
+                changeCharactor={handleChangeCharactor}
+            />
 
-            <PreviewCharactor />
+            <PreviewCharactor 
+                charactor={charactor}
+            />
 
             <DeployContainer />
 

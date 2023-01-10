@@ -6,7 +6,7 @@ export const theme={
             progressbar1:'#6AFFE5',
             progress1:'rgba(106, 255, 229, 0.2)',
             sidebarbg:'rgba(0, 8, 20, 0.68)',
-            mainColor:'#E02E2E',
+            mainColor:'#6AFFE5',
             hoverColor:'rgba(224, 46, 46, 0.08)'
         }
     },

@@ -1,12 +1,10 @@
 import styled, { css, useTheme } from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {ReactComponent as MultiFolderIcon} from '../../assets/images/Multi-Folder.svg';
 import {ReactComponent as EditIcon} from '../../assets/images/Edit.svg'; 
 import searchIcon from '../../assets/images/search.png';
 import CharactorCard from "./CharactorCard";
-import cha1 from '../../assets/images/fullbody-final imagePNG.png';
-import cha2 from '../../assets/images/Cyberpunk Azura Robot 1.png';
-import cha3 from '../../assets/images/Mecha Robot 2.png';
+import models from "./models";
 
 const Container=styled.div`
     width:400px;
@@ -167,94 +165,100 @@ const ChractorGroup=styled.div`
     &::-webkit-scrollbar {
         display: none; /* for Chrome, Safari, and Opera */
     }
-    height:100%;
+    max-height:100%;
 `;
 
-const charactorbtnList=[
-    {
-        id:1,
-        text:'Chractors'
-    },
-    {
-        id:2,
-        text:'Animals'
-    },
-    {
-        id:3,
-        text:'Cars'
-    },
-];
+const btns={
+    templatesBtn:[
+        {
+            id:1,
+            text:'Charactors',
+            tem:'charactors'
+        },
+        {
+            id:2,
+            text:'Animals',
+            tem:'animals'
+        },
+        {
+            id:3,
+            text:'Cars',
+            tem:'cars'
+        },
+    ],
+    customizeBtn:[
+        {
+            id:1,
+            text:'Skin color',
+            tem:'colors'
+        },
+        {
+            id:2,
+            text:'Glasses',
+            tem:'glasses'
+        },
+        {
+            id:3,
+            text:'Wings',
+            tem:'wings'
+        },
+        {
+            id:4,
+            text:'Masks',
+            tem:'masks'
+        },
+        {
+            id:5,
+            text:'Hair',
+            tem:'hair'
+        }
+    ]
 
-const charactorList=[
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha1,
-        badge:'',
-        btnText:'Default'
-    },
-    {
-        team:'Reitio team',
-        name:'Cyberpunk Azura',
-        img:cha2,
-        badge:'Imported',
-        btnText:'0.44 REIGN'
-    },
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha3,
-        badge:'Premium',
-        btnText:'0.44 REIGN'
-    },
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha1,
-        badge:'',
-        btnText:'Default'
-    },
-    {
-        team:'Reitio team',
-        name:'Cyberpunk Azura',
-        img:cha2,
-        badge:'Imported',
-        btnText:'0.44 REIGN'
-    },
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha3,
-        badge:'Premium',
-        btnText:'0.44 REIGN'
-    },
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha1,
-        badge:'',
-        btnText:'Default'
-    },
-    {
-        team:'Reitio team',
-        name:'Cyberpunk Azura',
-        img:cha2,
-        badge:'Imported',
-        btnText:'0.44 REIGN'
-    },
-    {
-        team:'Reitio team',
-        name:'Hydronis Alien',
-        img:cha3,
-        badge:'Premium',
-        btnText:'0.44 REIGN'
-    }
-]
-const AssetContainer=()=>{
+};
+
+const AssetContainer=({changeCharactor})=>{
     const theme=useTheme();
     const [templateBtn, setTemplateBtn]=useState(true);
-    const [charactorBtn, setChractorbtn]=useState(1);
+    const [charactorBtn, setChractorbtn]=useState({
+        id:1,
+        text:'Charactors',
+        tem:'charactors'
+    });
     const [searchText, setSearchText]=useState('Search');
+    const [cardList, setCardList]=useState(models.templates.charactors);
+    const [btnList, setBtnList]=useState(btns.templatesBtn);
+
+    useEffect(()=>{
+        if(templateBtn){
+            setBtnList(btns.templatesBtn);
+            setCardList(models.templates.charactors);
+            setChractorbtn({
+                id:1,
+                text:'Charactors',
+                tem:'charactors'
+            });
+        }
+        else{
+            setBtnList(btns.customizeBtn);
+            setCardList(models.customize.colors);
+            setChractorbtn({
+                id:1,
+                text:'Skin color',
+                tem:'colors'
+            });
+        } 
+    },[templateBtn]);
+
+    useEffect(()=>{
+        if(templateBtn){
+            setCardList(models.templates[charactorBtn.tem]);
+        }
+        else{
+            setCardList(models.customize[charactorBtn.tem]);
+        }
+        
+    }, [charactorBtn]);
+
     return (
         <Container>
             <MainBtnGroup>
@@ -278,12 +282,12 @@ const AssetContainer=()=>{
                 </MainBtn>
             </MainBtnGroup>
             <CharactorBtnGroup>
-                {charactorbtnList.map((v,k)=>
+                {btnList.map((v,k)=>
                     <CharactorBtn
                         key={k}
-                        $active={v.id===charactorBtn}
+                        $active={v.id===charactorBtn.id}
                         onClick={()=>{
-                            setChractorbtn(v.id);
+                            setChractorbtn(v);
                         }}
                     >
                         {v.text}
@@ -307,10 +311,13 @@ const AssetContainer=()=>{
                 </SearchPan>
                 <ChractorGroup>
                     {
-                        charactorList.map((v,k)=>(
+                        cardList.map((v,k)=>(
                             <CharactorCard
                                 key={k}
                                 data={v}
+                                changeCharactor={(c)=>{
+                                    changeCharactor(c);
+                                }}
                             />
                         ))
                     }

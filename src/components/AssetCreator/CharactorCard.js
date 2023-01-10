@@ -9,6 +9,12 @@ const Container = styled.div`
     border-radius: 8px;
     position:relative;
     cursor:pointer;
+    &:active{
+        border:solid 1px ${({ theme }) => theme.colors.mainColor};
+    }
+    &:focus{
+        border:solid 1px ${({ theme }) => theme.colors.mainColor};
+    }
     ${({ $active }) => $active ? css`
         border: 1px solid ${({ theme }) => theme.colors.mainColor};
     `: ''}
@@ -71,15 +77,19 @@ const Badge = styled.div`
 `;
 
 
-const CharactorCard = ({ data }) => {
+const CharactorCard = ({ data, changeCharactor }) => {
     const { img, name, team, badge, btnText } = data;
     return (
-        <Container>
+        <Container
+            onClick={()=>{
+                changeCharactor(data);
+            }}
+        >
             <Img src={img} />
             <Team>{team}</Team>
             <Name>{name}</Name>
             <Button
-                $default={btnText==='Default'}
+                $default={btnText==='Default'||btnText==='Free'}
             >{btnText}</Button>
             {badge !== '' &&
                 <Badge

@@ -34,6 +34,9 @@ const MenuItem = styled(NavLink)`
     &:hover{
         background: rgba(255, 255, 255, 0.08);
     }
+    &.active{
+        background: rgba(255, 255, 255, 0.08);
+    }
 
 
 `;
@@ -68,11 +71,11 @@ const links = [
         icon: wheelicon
     },
     {
-        to: '/profile',
+        to: '/profile1',
         icon: asseticon
     },
     {
-        to: '/profile',
+        to: '/profile2',
         icon: charticon
     }
 ]

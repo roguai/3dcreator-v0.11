@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import cha1 from '../../assets/images/fullbody-final imagePNG 2.png';
-import shadow from '../../assets/images/Ellipse 4.png';
 import circle from '../../assets/images/Ellipse 5.png';
 import circlebtn from '../../assets/images/Move.png';
 
@@ -59,12 +57,13 @@ const CharatorPan=styled.div`
     }
 `;
 
-const PreviewCharactor=()=>{
+const PreviewCharactor=({charactor})=>{
+    const {preview}=charactor;
     return (
         <Container>
 
             <CharatorPan>
-                <img id="charactor" src={cha1} />
+                <img id="charactor" src={preview} />
                 <div id="shadow" />
                 <img id="circle" src={circle} />
                 <img id="move" src={circlebtn} />
