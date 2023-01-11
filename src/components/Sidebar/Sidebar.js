@@ -63,7 +63,7 @@ const SignOut = styled.div`
 
 const links = [
     {
-        to: '/profile',
+        to: '/apps',
         icon: menuicon
     },
     {

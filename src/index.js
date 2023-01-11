@@ -9,12 +9,14 @@ import reportWebVitals from './reportWebVitals';
 
 import AssetCreator from './components/AssetCreator';
 import Profile from './components/Profile/Profile';
+import ErrorPage from './components/RouteErrorPage';
 
 const root=createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    // errorElement: <ErrorPage />,
     children:[
       {
         path:'/profile',
@@ -23,12 +25,20 @@ const router = createBrowserRouter([
       {
         path:'/assetcreator',
         element:<AssetCreator />
+      },
+      {
+        path:'*',
+        element:<ErrorPage />
       }
     
     ]
   },
   
 ]);
+
+
+
+
 root.render(
     <AppProvider>
       <RouterProvider router={router} />

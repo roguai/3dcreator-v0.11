@@ -5,6 +5,7 @@ import * as ACTIONS from '../store/actions/index';
 const initialState={
     isModalOpen:{status:false, name:''},
     profile:{
+        iswalletConnect:false,
         username:'Unnamed'
     },
     theme:'default'
@@ -17,8 +18,8 @@ const useMainHook=()=>{
         dispatch(ACTIONS.modal(name));
     };
 
-    const changeProfile=(username)=>{
-        dispatch(ACTIONS.changeProfile(username));
+    const changeProfile=(username, isw=true)=>{
+        dispatch(ACTIONS.changeProfile(username, isw));
     }
 
     const changeTheme=(theme)=>{
