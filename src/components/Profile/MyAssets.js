@@ -15,7 +15,7 @@ const Tab = styled.div`
     padding: 20px;
     border-bottom: solid 2px rgba(255, 255, 255, 0.12);
     &.active{
-        border-bottom: solid 2px #6AFFE5;
+        border-bottom: solid 2px ${({theme})=>theme.colors.mainColor};
     }
     cursor:pointer;
     font-size:16px;

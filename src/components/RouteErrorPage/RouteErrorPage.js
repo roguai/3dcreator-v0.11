@@ -15,8 +15,8 @@ const Container=styled.div`
 const ErrorPage = () => {
     return (
         <Container>
-            <h1>Oops!</h1>
-            <p>Blank page</p>
+            <h1>Coming soon</h1>
+            
             
           
         </Container>

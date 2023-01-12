@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Crypto from "./Crypto";
@@ -7,6 +7,7 @@ import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar.png';
 import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
+
 
 const Container = styled.div`
     position: fixed;
@@ -160,6 +161,21 @@ const Header = () => {
     const navigate = useNavigate();
     const { state, changeProfile } = useGlobalContext();
     const [isopenWallet, setIsopenWallet] = useState(false);
+    const ref = useRef();
+    const ref1 = useRef();
+    const handleOutsideofRef = (e) => {
+        if (ref.current && !ref.current.contains(e.target) && ref1.current!==e.target) {
+            setIsopenWallet(false);
+        }
+
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleOutsideofRef);
+        return () => {
+            document.removeEventListener('click', handleOutsideofRef);
+        }
+    }, [ref])
     return (
         <Container>
             <LogoContainer>
@@ -174,8 +190,9 @@ const Header = () => {
             {
                 state.profile.iswalletConnect &&
                 <AvatarContainer>
-                    <Crypto crypto="bitcoin" amount="0.345 ETH" />
-                    <Crypto crypto="litecoin" amount="8470 LTC" />
+                    {/* <Crypto crypto="bitcoin" amount="0.345 ETH" />
+                    <Crypto crypto="litecoin" amount="8470 LTC" /> */}
+                    <Crypto crypto="retio" amount="5000 REIGN" />
                     <Avatar
                         onClick={() => {
                             navigate('/profile');
@@ -188,6 +205,7 @@ const Header = () => {
                 !state.profile.iswalletConnect &&
                 <AvatarContainer>
                     <WalletConnectBtn
+                        ref={ref1}
                         onClick={() => {
                             setIsopenWallet(true);
                         }}
@@ -196,13 +214,13 @@ const Header = () => {
             }
             {
                 isopenWallet &&
-                <WalletConnectContainer>
+                <WalletConnectContainer ref={ref}>
                     <img src={walletIcon} />
                     <Title>Connect wallet</Title>
                     <Text>Choose your wallet to sign in</Text>
                     <Wallet></Wallet>
                     <ConnectBtn
-                        onClick={()=>{
+                        onClick={() => {
                             changeProfile('Unnamed', true);
                             setIsopenWallet(false);
                         }}

@@ -172,7 +172,7 @@ const btns={
     templatesBtn:[
         {
             id:1,
-            text:'Charactors',
+            text:'Characters',
             tem:'charactors'
         },
         {

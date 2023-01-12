@@ -327,7 +327,7 @@ const wings=[
         img:wingcard1,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:wingpreview1
+        preview:wingpreview2
     },
     {
         team:'Reitio team',
@@ -335,7 +335,7 @@ const wings=[
         img:wingcard2,
         badge:'Premium',
         btnText:'0.44 REIGN',
-        preview:wingpreview2
+        preview:wingpreview1
     },
 ];
 const masks=[
