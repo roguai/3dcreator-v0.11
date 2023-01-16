@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import { useGlobalContext } from "../App/context";
-import avatar from '../../assets/images/Ikbal.png';
+
 import etherLogo from '../../assets/images/Ethereum_Logo.png';
 import editIcon from '../../assets/images/edit.png';
 import trashIcon from '../../assets/images/trash.png';
@@ -29,7 +29,7 @@ const Card=styled.div`
 const Img=styled.img`
     height:200px;
     width:195px;
-    padding:20px 17px;
+
     background:#1B1A2C;
     border-radius:8px;
 `;
@@ -113,13 +113,13 @@ const BtnGroup=styled.div`
 `;
 
 
-const AssetsCard=()=>{
+const AssetsCard=(props)=>{
     const {toggleModal}=useGlobalContext();
-
+    const {avatar, name, modelid}=props;
     return (
         <Card>
             <Img className="avatar" src={avatar} />
-            <Name>Robert Dickerson</Name>
+            <Name>{name}</Name>
             <Feeling>No Feeling is Final</Feeling>
             <Divide />
             <PricePan>
@@ -130,7 +130,14 @@ const AssetsCard=()=>{
                 </Price>
             </PricePan>
             <BtnGroup className="btngroup">
-                <Button style={{background:'#3B82F6'}} to='/assetcreator'>
+                <Button 
+                    style={{background:'#3B82F6'}} 
+                    to={{
+                        pathname:'/assetcreator',
+                        
+                    }}
+                    state={modelid}
+                >
                     <img src={editIcon} />
                 </Button>
                 <Button style={{background:'#F2994A'}}>

@@ -5,6 +5,7 @@ import {ReactComponent as EditIcon} from '../../assets/images/Edit.svg';
 import searchIcon from '../../assets/images/search.png';
 import CharactorCard from "./CharactorCard";
 import models from "./models";
+import { useGlobalContext } from "../App/context";
 
 const Container=styled.div`
     width:400px;
@@ -45,6 +46,9 @@ const MainBtn=styled.div`
         color: rgba(255, 255, 255, 0.46);
         background:rgba(255, 255, 255, 0.04);
     `}
+    ${({$disabled})=>$disabled?css`
+        cursor:no-drop;
+    `:css``}
     &:hover{
         background:${({theme})=>theme.colors.hoverColor}
     }
@@ -204,20 +208,21 @@ const btns={
         },
         {
             id:4,
-            text:'Masks',
-            tem:'masks'
+            text:'Headphone',
+            tem:'headphone'
         },
-        {
-            id:5,
-            text:'Hair',
-            tem:'hair'
-        }
+        // {
+        //     id:5,
+        //     text:'Hair',
+        //     tem:'hair'
+        // }
     ]
 
 };
 
-const AssetContainer=({changeCharactor})=>{
+const AssetContainer=()=>{
     const theme=useTheme();
+    const {state}=useGlobalContext();
     const [templateBtn, setTemplateBtn]=useState(true);
     const [charactorBtn, setChractorbtn]=useState({
         id:1,
@@ -273,7 +278,9 @@ const AssetContainer=({changeCharactor})=>{
                 </MainBtn>
                 <MainBtn
                     $active={!templateBtn}
+                    $disabled={!state.currentModel.customizable}
                     onClick={()=>{
+                        if(!state.currentModel.customizable)return;
                         setTemplateBtn(false);
                     }}
                 >
@@ -315,9 +322,7 @@ const AssetContainer=({changeCharactor})=>{
                             <CharactorCard
                                 key={k}
                                 data={v}
-                                changeCharactor={(c)=>{
-                                    changeCharactor(c);
-                                }}
+                               
                             />
                         ))
                     }

@@ -20,3 +20,17 @@ export const changeTheme=(theme)=>{
         payload: {theme:theme}
     }
 }
+
+export const changeModelcustomize=(val)=>{
+    return {
+        type:ACTION_TYPES.CHANGE_MODEL_CUSTOMIZE,
+        payload:val
+    }
+}
+
+export const changeCurrentModel=(model)=>{
+    return {
+        type:ACTION_TYPES.CHANGE_CURRENT_MODEL,
+        payload:model
+    }
+}

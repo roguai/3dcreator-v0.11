@@ -5,6 +5,10 @@ import AssetContainer from "./AssetContainer";
 import DeployContainer from "./DeployContainer";
 import PreviewCharactor from "./PreviewCharactor";
 import models from "./models";
+import { useLocation } from "react-router-dom";
+
+import Human1 from '../../assets/models/customize/Human1';
+import Human2 from '../../assets/models/customize/Human2';
 
 const Container=styled.div`
     height: 100%;
@@ -14,24 +18,19 @@ const Container=styled.div`
     justify-content: space-between;
 `;
 
-const AssetCreator = ()=>{
+const AssetCreator = (props)=>{
+    const {state}=useLocation();
     const {changeTheme}=useGlobalContext();
     useEffect(()=>{
         changeTheme('yellow');
     },[]);
-    const [charactor, setCharactor]=useState(models.templates.charactors[0])
-    const handleChangeCharactor=(c)=>{
-        setCharactor(c);
-    }
+ 
     return (
         <Container>
-            <AssetContainer 
-                changeCharactor={handleChangeCharactor}
-            />
-
-            <PreviewCharactor 
-                charactor={charactor}
-            />
+            <AssetContainer />
+            <PreviewCharactor />
+            
+           
 
             <DeployContainer />
 

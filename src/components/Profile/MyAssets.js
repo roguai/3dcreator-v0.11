@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import AssetsCard from "../AssetsCard";
+import avatar from '../../assets/images/Ikbal.png';
+import cha5 from '../../assets/images/cards/human1.png';
+import cha6 from '../../assets/images/cards/human2.png';
+import door4 from '../../assets/images/cards/4doorv8.png';
 
 const Conatiner = styled.div`
     margin:0 40px;
@@ -50,7 +54,7 @@ const Assets=styled.div`
     flex-flow:wrap;
 `;
 
-const assets=[1,2,3,4,5,6,7,8];
+const assets=[1,2,3,4,5];
 
 const MyAssets = () => {
     return (
@@ -71,8 +75,11 @@ const MyAssets = () => {
                 </SelectMenu>
             </div>
             <Assets>
+                <AssetsCard avatar={cha5} name="Human 1" modelid="human1" />
+                <AssetsCard avatar={cha6} name="Human 2" modelid="human2" />
+                <AssetsCard avatar={door4} name="Door 4" modelid="car1" />
                 {assets.map((v,key)=>(
-                    <AssetsCard key={key} />
+                    <AssetsCard key={key} avatar={avatar} name="Robert Dickerson" modelid="" />
                 ))}
             </Assets>
         </Conatiner>

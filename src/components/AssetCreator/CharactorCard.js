@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { useGlobalContext } from "../App/context";
 
 const Container = styled.div`
     box-sizing: border-box;
@@ -52,10 +53,10 @@ const Button = styled.button`
     cursor:pointer;
     border-radius:6px;
     margin-top:10px;
-    ${({$default})=>$default?css`
+    ${({ $default }) => $default ? css`
         background:rgba(255, 255, 255, 0.05);
-    `:css`
-        background:${({theme})=>theme.colors.mainColor}
+    `: css`
+        background:${({ theme }) => theme.colors.mainColor}
     `}
 `;
 
@@ -69,27 +70,49 @@ const Badge = styled.div`
     text-align: center;
     
     border-radius: 5px;
-    ${({$badge})=>$badge==='Imported'?css`
+    ${({ $badge }) => $badge === 'Imported' ? css`
         background: #3B82F6;
-    `:css`
+    `: css`
         background:#E11476;
     `}
 `;
 
 
-const CharactorCard = ({ data, changeCharactor }) => {
-    const { img, name, team, badge, btnText } = data;
+const CharactorCard = ({ data }) => {
+    const { img, name, team, badge, btnText, iscustomize, customizable } = data;
+    const {changeCurrentModel, changeModelcustomize}=useGlobalContext();
+    
+    const handleClick=()=>{
+        if(!iscustomize){
+            const {Preview}=data;
+            changeCurrentModel({Preview:Preview, customizable:customizable});
+        }
+        else{
+            const {category, val}=data;
+            let v={};
+            if(category==='wing'){
+                v={wing:val}
+            }
+            else if(category==='ear'){
+                v={ear:val}
+            }
+            else if(category==='glass'){
+                v={glass:val}
+            }
+            changeModelcustomize(v);
+        }
+    }
     return (
         <Container
-            onClick={()=>{
-                changeCharactor(data);
+            onClick={() => {
+                handleClick();
             }}
         >
             <Img src={img} />
             <Team>{team}</Team>
             <Name>{name}</Name>
             <Button
-                $default={btnText==='Default'||btnText==='Free'}
+                $default={btnText === 'Default' || btnText === 'Free'}
             >{btnText}</Button>
             {badge !== '' &&
                 <Badge

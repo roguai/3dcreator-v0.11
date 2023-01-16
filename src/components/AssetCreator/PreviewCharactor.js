@@ -7,6 +7,7 @@ import circle from '../../assets/images/Ellipse 5.png';
 import circlebtn from '../../assets/images/Move.png';
 import { Suspense, useState } from "react";
 import { templates } from "./glbModels";
+import { useGlobalContext } from "../App/context";
 
 const Container = styled.div`
     width: 100%;
@@ -85,10 +86,11 @@ const CharatorPan = styled.div`
  * @returns 
  * frameloop="demand" we can use in canvas to scale performance
  */
-const PreviewCharactor = ({ charactor }) => {
-    const { Preview } = charactor;
+const PreviewCharactor = () => {
     const [y, setY] = useState(0);
-
+    const {state}=useGlobalContext();
+    const Preview=state.currentModel.Preview;
+    console.log(state.modelcustomize)
     return (
         <Container>
 

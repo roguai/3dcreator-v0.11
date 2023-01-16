@@ -4,23 +4,27 @@ import colorcard3 from '../../assets/images/cards/color3.png';
 import colorcard4 from '../../assets/images/cards/color4.png';
 import colorcard5 from '../../assets/images/cards/color5.png';
 import colorcard6 from '../../assets/images/cards/color6.png';
-import colorpreview1 from '../../assets/images/preview/Character1.png';
-import colorpreview2 from '../../assets/images/preview/Character2.png';
-import colorpreview3 from '../../assets/images/preview/Character3.png';
-import colorpreview4 from '../../assets/images/preview/Character4.png';
-import colorpreview5 from '../../assets/images/preview/Character5.png';
-import colorpreview6 from '../../assets/images/preview/Character6.png';
+
 
 import wingcard1 from '../../assets/images/cards/wing1.png';
 import wingcard2 from '../../assets/images/cards/wing2.png';
-import wingpreview1 from '../../assets/images/preview/Character8.png';
-import wingpreview2 from '../../assets/images/preview/Character9.png';
+import wingcard3 from '../../assets/images/cards/wing3.png';
+import wingcard4 from '../../assets/images/cards/wing4.png';
+
 
 import mask1 from '../../assets/images/cards/mask1.png';
-import maskpreview1 from '../../assets/images/preview/Character10.png';
+
 
 import glasscard1 from '../../assets/images/cards/glass1.png';
-import glasspreview1 from '../../assets/images/preview/Character7.png';
+import glasscard2 from '../../assets/images/cards/glass2.png';
+import glasscard3 from '../../assets/images/cards/glass3.png';
+import glasscard4 from '../../assets/images/cards/glass4.png';
+import glasscard5 from '../../assets/images/cards/glass5.png';
+
+import earcard1 from '../../assets/images/cards/ear1.png';
+import earcard2 from '../../assets/images/cards/ear2.png';
+import earcard3 from '../../assets/images/cards/ear3.png';
+import earcard4 from '../../assets/images/cards/ear4.png';
 
 ///////////////////////////
 
@@ -33,13 +37,15 @@ import cha4 from '../../assets/images/cards/dinosaur.png';
 import cha5 from '../../assets/images/cards/human1.png';
 import cha6 from '../../assets/images/cards/human2.png';
 import cha7 from '../../assets/images/cards/hoodie_robot.png';
-import Cyperpunk_zaura from '../../assets/models/templates/Humanoid_Mecha/Cyberpunk_azura';
-import Expedition_mecha from '../../assets/models/templates/Humanoid_Mecha/Expedition_mecha';
-import Robot_man from '../../assets/models/templates/Humanoid_Mecha/Robot_man';
-import Robot_Dinosaur from '../../assets/models/templates/Humanoid_Mecha/Robot_Dinosaur';
-import Human1 from '../../assets/models/templates/Humanoid_Mecha/Human1';
-import Human2 from '../../assets/models/templates/Humanoid_Mecha/Human2';
-import Hoodie_robot from '../../assets/models/templates/Humanoid_Mecha/Hoodie_robot';
+import Cyperpunkzaura from '../../assets/models/templates/Humanoid_Mecha/Cyberpunk_azura';
+import Expeditionmecha from '../../assets/models/templates/Humanoid_Mecha/Expedition_mecha';
+import Robotman from '../../assets/models/templates/Humanoid_Mecha/Robot_man';
+import RobotDinosaur from '../../assets/models/templates/Humanoid_Mecha/Robot_Dinosaur';
+// import Human1 from '../../assets/models/templates/Humanoid_Mecha/Human1';
+// import Human2 from '../../assets/models/templates/Humanoid_Mecha/Human2';
+import Human1 from '../../assets/models/customize/Human1';
+import Human2 from '../../assets/models/customize/Human2';
+import Hoodierobot from '../../assets/models/templates/Humanoid_Mecha/Hoodie_robot';
 
 import cat1 from '../../assets/images/cards/cat1.png';
 import dog1 from '../../assets/images/cards/dog1.png';
@@ -55,16 +61,16 @@ import Rabbit from '../../assets/models/templates/Animals/Rabbit';
 import RobotDog from '../../assets/models/templates/Animals/Robotdog';
 
 import door4 from '../../assets/images/cards/4doorv8.png';
-import futuristic_car from '../../assets/images/cards/futuristic_car.png';
-import hyper_concept_car from '../../assets/images/cards/hyper_concept_car.png';
-import modern_supercar from '../../assets/images/cards/modern_supercar.png';
-import selva_hypercar from '../../assets/images/cards/selva_hypercar.png';
+import futuristiccar from '../../assets/images/cards/futuristic_car.png';
+import hyperconceptcar from '../../assets/images/cards/hyper_concept_car.png';
+import modernsupercar from '../../assets/images/cards/modern_supercar.png';
+import selvahypercar from '../../assets/images/cards/selva_hypercar.png';
 import supercar from '../../assets/images/cards/supercar.png';
 import Door4 from '../../assets/models/templates/Cars/Door4';
-import Futuristic_car from '../../assets/models/templates/Cars/Futuristic_car';
-import Hyper_concept_car from '../../assets/models/templates/Cars/Hyper_concept_car';
-import Modern_supercar from '../../assets/models/templates/Cars/Modern_supercar';
-import Selva_hypercar from '../../assets/models/templates/Cars/Selva_hypercar';
+import Futuristiccar from '../../assets/models/templates/Cars/Futuristic_car';
+import Hyperconceptcar from '../../assets/models/templates/Cars/Hyper_concept_car';
+import Modernsupercar from '../../assets/models/templates/Cars/Modern_supercar';
+import Selvahypercar from '../../assets/models/templates/Cars/Selva_hypercar';
 import Supercar from '../../assets/models/templates/Cars/Supercar';
 
 const charactorList=[
@@ -74,7 +80,9 @@ const charactorList=[
         img:cha2,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Cyperpunk_zaura position={[0,-1,0]} {...props}/>,
+        Preview:(props)=><Cyperpunkzaura position={[0,-1,0]} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -82,7 +90,9 @@ const charactorList=[
         img:cha3,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Expedition_mecha scale={0.01} position={[0,-1,0]} {...props}/>,
+        Preview:(props)=><Expeditionmecha scale={0.01} position={[0,-1,0]} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -90,7 +100,9 @@ const charactorList=[
         img:cha1,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Robot_man position={[0,-1,0]} {...props}/>,
+        Preview:(props)=><Robotman position={[0,-1,0]} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -98,7 +110,9 @@ const charactorList=[
         img:cha4,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Robot_Dinosaur position={[0,-1,0]} scale={0.7} {...props}/>,
+        Preview:(props)=><RobotDinosaur position={[0,-1,0]} scale={0.7} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -107,6 +121,8 @@ const charactorList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Human1 position={[0,-1,0]} scale={0.07} {...props}/>,
+        iscustomize:false,
+        customizable:true
     },
     {
         team:'Reitio team',
@@ -115,15 +131,17 @@ const charactorList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Human2 position={[0,-1,0]} {...props}/>,
+        iscustomize:false,
+        customizable:true
     },
-    {
-        team:'Reitio team',
-        name:'Robot',
-        img:cha7,
-        badge:'',
-        btnText:'0.44 REIGN',
-        Preview:(props)=><Hoodie_robot position={[0,-1,0]} scale={0.01} {...props}/>,
-    },
+    // {
+    //     team:'Reitio team',
+    //     name:'Robot',
+    //     img:cha7,
+    //     badge:'',
+    //     btnText:'0.44 REIGN',
+    //     Preview:(props)=><Hoodierobot position={[0,-1,0]} scale={0.01} {...props}/>,
+    // },
     
     
 ];
@@ -136,6 +154,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Cat1 position={[0,-1,0]} scale={0.03} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -144,6 +164,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Dog1 position={[0,-0.7,0]} scale={0.3} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -152,6 +174,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Horse position={[0,-1,0]} scale={0.01} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -160,6 +184,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Kitten position={[0,-1,0]} scale={0.1} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -168,6 +194,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Rabbit position={[0,-1,0]} scale={15} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -176,6 +204,8 @@ const animalList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><RobotDog position={[0,-0.7,0]} scale={0.8} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
 ];
 
@@ -187,38 +217,48 @@ const carList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Door4 position={[0,-1,0]} scale={0.004} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
         name:'Futuristic car',
-        img:futuristic_car,
+        img:futuristiccar,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Futuristic_car position={[0,-1,0]} scale={0.2} {...props}/>,
+        Preview:(props)=><Futuristiccar position={[0,-1,0]} scale={0.2} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
         name:'Hyper concept car',
-        img:hyper_concept_car,
+        img:hyperconceptcar,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Hyper_concept_car position={[0,-1,0]} scale={0.1} {...props}/>,
+        Preview:(props)=><Hyperconceptcar position={[0,-1,0]} scale={0.1} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
         name:'Modern super car',
-        img:modern_supercar,
+        img:modernsupercar,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Modern_supercar position={[0,-1,0]} scale={0.4} {...props}/>,
+        Preview:(props)=><Modernsupercar position={[0,-1,0]} scale={0.4} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
         name:'Selva hyper car',
-        img:selva_hypercar,
+        img:selvahypercar,
         badge:'',
         btnText:'0.44 REIGN',
-        Preview:(props)=><Selva_hypercar position={[0,-1,0]} scale={0.4} {...props}/>,
+        Preview:(props)=><Selvahypercar position={[0,-1,0]} scale={0.4} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
     {
         team:'Reitio team',
@@ -227,6 +267,8 @@ const carList=[
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Supercar position={[0,-1,0]} scale={0.07} {...props}/>,
+        iscustomize:false,
+        customizable:false
     },
 ];
 
@@ -247,7 +289,9 @@ const colors=[
         img:colorcard1,
         badge:'',
         btnText:'Default',
-        preview:colorpreview1
+        iscustomize:true,
+        category:'color',
+        val:1
     },
     {
         team:'Reitio team',
@@ -255,7 +299,9 @@ const colors=[
         img:colorcard2,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:colorpreview2
+        iscustomize:true,
+        category:'color',
+        val:2
     },
     {
         team:'Reitio team',
@@ -263,7 +309,9 @@ const colors=[
         img:colorcard3,
         badge:'Premium',
         btnText:'0.44 REIGN',
-        preview:colorpreview3
+        iscustomize:true,
+        category:'color',
+        val:3
     },
     {
         team:'Reitio team',
@@ -271,7 +319,9 @@ const colors=[
         img:colorcard4,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:colorpreview4
+        iscustomize:true,
+        category:'color',
+        val:4
     },
     {
         team:'Reitio team',
@@ -279,7 +329,9 @@ const colors=[
         img:colorcard5,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:colorpreview5
+        iscustomize:true,
+        category:'color',
+        val:5
     },
     {
         team:'Reitio team',
@@ -287,7 +339,9 @@ const colors=[
         img:colorcard6,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:colorpreview6
+        iscustomize:true,
+        category:'color',
+        val:6
     },
     
 ];
@@ -298,15 +352,49 @@ const glasses=[
         img:defaultcard,
         badge:'',
         btnText:'Default',
-        preview:colorpreview1
+        iscustomize:true,
+        category:'glass',
+        val:0
     },
     {
         team:'Reitio team',
         name:'Scan glasses',
-        img:glasscard1,
+        img:glasscard2,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:glasspreview1
+        iscustomize:true,
+        category:'glass',
+        val:1
+    },
+    {
+        team:'Reitio team',
+        name:'Scan glasses',
+        img:glasscard3,
+        badge:'',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'glass',
+        val:2
+    },
+    {
+        team:'Reitio team',
+        name:'Scan glasses',
+        img:glasscard4,
+        badge:'',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'glass',
+        val:3
+    },
+    {
+        team:'Reitio team',
+        name:'Scan glasses',
+        img:glasscard5,
+        badge:'',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'glass',
+        val:4
     },
 ];
 const wings=[
@@ -316,7 +404,9 @@ const wings=[
         img:defaultcard,
         badge:'',
         btnText:'Default',
-        preview:glasspreview1
+        iscustomize:true,
+        category:'wing',
+        val:0
     },
     {
         team:'Reitio team',
@@ -324,7 +414,9 @@ const wings=[
         img:wingcard1,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:wingpreview2
+        iscustomize:true,
+        category:'wing',
+        val:1
     },
     {
         team:'Reitio team',
@@ -332,7 +424,81 @@ const wings=[
         img:wingcard2,
         badge:'Premium',
         btnText:'0.44 REIGN',
-        preview:wingpreview1
+        iscustomize:true,
+        category:'wing',
+        val:2
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:wingcard3,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'wing',
+        val:3
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:wingcard4,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'wing',
+        val:4
+    },
+];
+const headphone=[
+    {
+        team:'Reitio team',
+        name:'Without glasses',
+        img:defaultcard,
+        badge:'',
+        btnText:'Default',
+        iscustomize:true,
+        category:'ear',
+        val:0
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:earcard1,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'ear',
+        val:1
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:earcard2,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'ear',
+        val:2
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:earcard3,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'ear',
+        val:3
+    },
+    {
+        team:'Reitio team',
+        name:'Butterfly wings',
+        img:earcard4,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'ear',
+        val:4
     },
 ];
 const masks=[
@@ -342,7 +508,6 @@ const masks=[
         img:defaultcard,
         badge:'',
         btnText:'Default',
-        preview:wingpreview1
     },
     {
         team:'Reitio team',
@@ -350,7 +515,6 @@ const masks=[
         img:mask1,
         badge:'',
         btnText:'0.44 REIGN',
-        preview:maskpreview1
     },
 ];
 const hair=[];
@@ -359,6 +523,7 @@ const customize={
     colors:colors,
     glasses:glasses,
     wings:wings,
+    headphone:headphone,
     masks:masks,
     hair:hair
 };

@@ -25,4 +25,22 @@ export const mainReducer=(state, action)=>{
             theme:action.payload.theme
         }
     }
+    else if(action.type===ACTION_TYPES.CHANGE_MODEL_CUSTOMIZE){
+        return {
+            ...state,
+            modelcustomize:{
+                ...state.modelcustomize,
+                ...action.payload
+            }
+        }
+    }
+
+    else if(action.type===ACTION_TYPES.CHANGE_CURRENT_MODEL){
+        return {
+            ...state,
+            currentModel:{
+                ...action.payload
+            }
+        }
+    }
 }
