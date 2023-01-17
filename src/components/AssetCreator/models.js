@@ -26,6 +26,10 @@ import earcard2 from '../../assets/images/cards/ear2.png';
 import earcard3 from '../../assets/images/cards/ear3.png';
 import earcard4 from '../../assets/images/cards/ear4.png';
 
+import roofboxcard from '../../assets/images/cards/roofbox.png';
+import spoilercard1 from '../../assets/images/cards/spoiler1.png';
+import spoilercard2 from '../../assets/images/cards/spoiler2.png';
+import spoilercard3 from '../../assets/images/cards/spoiler3.png';
 ///////////////////////////
 
 import defaultcard from '../../assets/images/cards/none.png';
@@ -77,13 +81,36 @@ import Supercar from '../../assets/models/templates/Cars/Supercar';
 const charactorList=[
     {
         team:'Reitio team',
+        name:'Runner',
+        img:cha5,
+        badge:'',
+        btnText:'0.44 REIGN',
+        Preview:(props)=><Human1 position={[0,-1,0]} scale={0.07} {...props}/>,
+        iscustomize:false,
+        customizable:true,
+        category:'human'
+    },
+    {
+        team:'Reitio team',
+        name:'Bob',
+        img:cha6,
+        badge:'',
+        btnText:'0.44 REIGN',
+        Preview:(props)=><Human2 position={[0,-1,0]} {...props}/>,
+        iscustomize:false,
+        customizable:true,
+        category:'human'
+    },
+    {
+        team:'Reitio team',
         name:'Cyperpunk zaura',
         img:cha2,
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Cyperpunkzaura position={[0,-1,0]} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -93,7 +120,8 @@ const charactorList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Expeditionmecha scale={0.01} position={[0,-1,0]} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -103,7 +131,8 @@ const charactorList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Robotman position={[0,-1,0]} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -113,38 +142,10 @@ const charactorList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><RobotDinosaur position={[0,-1,0]} scale={0.7} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
-    {
-        team:'Reitio team',
-        name:'Human 1',
-        img:cha5,
-        badge:'',
-        btnText:'0.44 REIGN',
-        Preview:(props)=><Human1 position={[0,-1,0]} scale={0.07} {...props}/>,
-        iscustomize:false,
-        customizable:true
-    },
-    {
-        team:'Reitio team',
-        name:'Human 2',
-        img:cha6,
-        badge:'',
-        btnText:'0.44 REIGN',
-        Preview:(props)=><Human2 position={[0,-1,0]} {...props}/>,
-        iscustomize:false,
-        customizable:true
-    },
-    // {
-    //     team:'Reitio team',
-    //     name:'Robot',
-    //     img:cha7,
-    //     badge:'',
-    //     btnText:'0.44 REIGN',
-    //     Preview:(props)=><Hoodierobot position={[0,-1,0]} scale={0.01} {...props}/>,
-    // },
-    
-    
+
 ];
 
 const animalList=[
@@ -156,7 +157,8 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Cat1 position={[0,-1,0]} scale={0.03} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -166,7 +168,8 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Dog1 position={[0,-0.7,0]} scale={0.3} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -176,7 +179,8 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Horse position={[0,-1,0]} scale={0.01} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -186,7 +190,8 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Kitten position={[0,-1,0]} scale={0.1} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -196,7 +201,8 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Rabbit position={[0,-1,0]} scale={15} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -206,20 +212,22 @@ const animalList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><RobotDog position={[0,-0.7,0]} scale={0.8} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
 ];
 
 const carList=[
     {
         team:'Reitio team',
-        name:'Door 4',
+        name:'4 Door',
         img:door4,
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Door4 position={[0,-1,0]} scale={0.004} {...props}/>,
         iscustomize:false,
-        customizable:true
+        customizable:true,
+        category:'car'
     },
     {
         team:'Reitio team',
@@ -229,17 +237,19 @@ const carList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Futuristiccar position={[0,-1,0]} scale={0.2} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
-        name:'Hyper concept car',
+        name:'Hyper concept',
         img:hyperconceptcar,
         badge:'',
         btnText:'0.44 REIGN',
         Preview:(props)=><Hyperconceptcar position={[0,-1,0]} scale={0.1} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -249,7 +259,8 @@ const carList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Modernsupercar position={[0,-1,0]} scale={0.4} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -259,7 +270,8 @@ const carList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Selvahypercar position={[0,-1,0]} scale={0.4} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
     {
         team:'Reitio team',
@@ -269,7 +281,8 @@ const carList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Supercar position={[0,-1,0]} scale={0.07} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:false,
+        category:''
     },
 ];
 
@@ -284,19 +297,10 @@ const templates={
  * customize
  */
 const colors=[
+
     {
         team:'Reitio team',
-        name:'No color',
-        img:defaultcard,
-        badge:'',
-        btnText:'Default',
-        iscustomize:true,
-        category:'color',
-        val:''
-    },
-    {
-        team:'Reitio team',
-        name:'Red skin color',
+        name:'Red',
         img:colorcard1,
         badge:'',
         btnText:'Default',
@@ -306,7 +310,7 @@ const colors=[
     },
     {
         team:'Reitio team',
-        name:'Orange skin color',
+        name:'Orange',
         img:colorcard2,
         badge:'',
         btnText:'0.44 REIGN',
@@ -316,17 +320,17 @@ const colors=[
     },
     {
         team:'Reitio team',
-        name:'Yellow skin color',
+        name:'Yellow',
         img:colorcard3,
         badge:'Premium',
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:'#f2994a'
+        val:'#f2c94c'
     },
     {
         team:'Reitio team',
-        name:'Dark green skin...',
+        name:'Dark green',
         img:colorcard4,
         badge:'',
         btnText:'0.44 REIGN',
@@ -336,7 +340,7 @@ const colors=[
     },
     {
         team:'Reitio team',
-        name:'Green skin color',
+        name:'Green',
         img:colorcard5,
         badge:'',
         btnText:'0.44 REIGN',
@@ -346,7 +350,7 @@ const colors=[
     },
     {
         team:'Reitio team',
-        name:'Light green ski...',
+        name:'Light green',
         img:colorcard6,
         badge:'',
         btnText:'0.44 REIGN',
@@ -359,7 +363,7 @@ const colors=[
 const glasses=[
     {
         team:'Reitio team',
-        name:'Without glasses',
+        name:'Default',
         img:defaultcard,
         badge:'',
         btnText:'Default',
@@ -369,7 +373,7 @@ const glasses=[
     },
     {
         team:'Reitio team',
-        name:'Scan glasses',
+        name:'Glasses 1',
         img:glasscard2,
         badge:'',
         btnText:'0.44 REIGN',
@@ -379,7 +383,7 @@ const glasses=[
     },
     {
         team:'Reitio team',
-        name:'Scan glasses',
+        name:'Glasses 2',
         img:glasscard3,
         badge:'',
         btnText:'0.44 REIGN',
@@ -389,7 +393,7 @@ const glasses=[
     },
     {
         team:'Reitio team',
-        name:'Scan glasses',
+        name:'Mask 1',
         img:glasscard4,
         badge:'',
         btnText:'0.44 REIGN',
@@ -399,7 +403,7 @@ const glasses=[
     },
     {
         team:'Reitio team',
-        name:'Scan glasses',
+        name:'Mask 2',
         img:glasscard5,
         badge:'',
         btnText:'0.44 REIGN',
@@ -411,7 +415,7 @@ const glasses=[
 const wings=[
     {
         team:'Reitio team',
-        name:'Without wings',
+        name:'Default',
         img:defaultcard,
         badge:'',
         btnText:'Default',
@@ -421,7 +425,7 @@ const wings=[
     },
     {
         team:'Reitio team',
-        name:'Space wings',
+        name:'Wing 1',
         img:wingcard1,
         badge:'',
         btnText:'0.44 REIGN',
@@ -431,7 +435,7 @@ const wings=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Wing 2',
         img:wingcard2,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -441,7 +445,7 @@ const wings=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Wing 3',
         img:wingcard3,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -451,7 +455,7 @@ const wings=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Wing 4',
         img:wingcard4,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -463,7 +467,7 @@ const wings=[
 const headphone=[
     {
         team:'Reitio team',
-        name:'Without glasses',
+        name:'Default',
         img:defaultcard,
         badge:'',
         btnText:'Default',
@@ -473,7 +477,7 @@ const headphone=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Headphone 1',
         img:earcard1,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -483,7 +487,7 @@ const headphone=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Headphone 2',
         img:earcard2,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -493,7 +497,7 @@ const headphone=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Headphone 3',
         img:earcard3,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -503,7 +507,7 @@ const headphone=[
     },
     {
         team:'Reitio team',
-        name:'Butterfly wings',
+        name:'Headphone 4',
         img:earcard4,
         badge:'Premium',
         btnText:'0.44 REIGN',
@@ -512,6 +516,72 @@ const headphone=[
         val:4
     },
 ];
+
+
+const roofbox=[
+    {
+        team:'Reitio team',
+        name:'Default',
+        img:defaultcard,
+        badge:'',
+        btnText:'Default',
+        iscustomize:true,
+        category:'roofbox',
+        val:0
+    },
+    {
+        team:'Reitio team',
+        name:'Roofbox',
+        img:roofboxcard,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'roofbox',
+        val:1
+    },
+];
+const spoiler=[
+    {
+        team:'Reitio team',
+        name:'Default',
+        img:defaultcard,
+        badge:'',
+        btnText:'Default',
+        iscustomize:true,
+        category:'spoiler',
+        val:0
+    },
+    {
+        team:'Reitio team',
+        name:'Spoiler 1',
+        img:spoilercard1,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'spoiler',
+        val:1
+    },
+    {
+        team:'Reitio team',
+        name:'Spoiler 2',
+        img:spoilercard2,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'spoiler',
+        val:2
+    },
+    {
+        team:'Reitio team',
+        name:'Spoiler 3',
+        img:spoilercard3,
+        badge:'Premium',
+        btnText:'0.44 REIGN',
+        iscustomize:true,
+        category:'spoiler',
+        val:3
+    },
+]
 const masks=[
     {
         team:'Reitio team',
@@ -536,7 +606,9 @@ const customize={
     wings:wings,
     headphone:headphone,
     masks:masks,
-    hair:hair
+    hair:hair,
+    roofbox:roofbox,
+    spoiler:spoiler
 };
 const models={
     templates:templates,

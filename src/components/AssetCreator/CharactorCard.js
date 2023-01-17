@@ -84,8 +84,8 @@ const CharactorCard = ({ data }) => {
     
     const handleClick=()=>{
         if(!iscustomize){
-            const {Preview}=data;
-            changeCurrentModel({Preview:Preview, customizable:customizable});
+            const {Preview, category}=data;
+            changeCurrentModel({Preview:Preview, customizable:customizable, category:category});
         }
         else{
             const {category, val}=data;
@@ -101,6 +101,12 @@ const CharactorCard = ({ data }) => {
             }
             else if(category==='color'){
                 v={color:val}
+            }
+            else if(category==='roofbox'){
+                v={roofbox:val}
+            }
+            else if(category==='spoiler'){
+                v={spoiler:val}
             }
             changeModelcustomize(v);
         }

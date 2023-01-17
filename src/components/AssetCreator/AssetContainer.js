@@ -1,19 +1,19 @@
 import styled, { css, useTheme } from "styled-components";
 import { useEffect, useState } from "react";
-import {ReactComponent as MultiFolderIcon} from '../../assets/images/Multi-Folder.svg';
-import {ReactComponent as EditIcon} from '../../assets/images/Edit.svg'; 
+import { ReactComponent as MultiFolderIcon } from '../../assets/images/Multi-Folder.svg';
+import { ReactComponent as EditIcon } from '../../assets/images/Edit.svg';
 import searchIcon from '../../assets/images/search.png';
 import CharactorCard from "./CharactorCard";
 import models from "./models";
 import { useGlobalContext } from "../App/context";
 
-const Container=styled.div`
+const Container = styled.div`
     width:400px;
     margin:0 24px;
     height:100%;
 `;
 
-const MainBtnGroup=styled.div`
+const MainBtnGroup = styled.div`
     width:400px;
     border-radius:10px;
     background:rgba(0, 8, 20, 0.68);
@@ -22,7 +22,7 @@ const MainBtnGroup=styled.div`
     gap:10px;
     padding:10px;
 `;
-const MainBtn=styled.div`
+const MainBtn = styled.div`
     width:185px;
     height:57px;
     border-radius:7px;
@@ -39,22 +39,22 @@ const MainBtn=styled.div`
         
     }
     cursor:pointer;
-    ${({$active})=>$active?css`
-        color:${({theme})=>theme.colors.mainColor};
+    ${({ $active }) => $active ? css`
+        color:${({ theme }) => theme.colors.mainColor};
         background: rgba(255, 255, 255, 0.08);
     `: css`
         color: rgba(255, 255, 255, 0.46);
         background:rgba(255, 255, 255, 0.04);
     `}
-    ${({$disabled})=>$disabled?css`
+    ${({ $disabled }) => $disabled ? css`
         cursor:no-drop;
-    `:css``}
+    `: css``}
     &:hover{
-        background:${({theme})=>theme.colors.hoverColor}
+        background:${({ theme }) => theme.colors.hoverColor}
     }
 `;
 
-const CharactorBtnGroup=styled.div`
+const CharactorBtnGroup = styled.div`
     width:400px;
     background: rgba(0, 8, 20, 0.68);
     backdrop-filter: blur(6px);
@@ -73,18 +73,18 @@ const CharactorBtnGroup=styled.div`
     }
 `;
 
-const CharactorBtn=styled.a`
+const CharactorBtn = styled.a`
     font-size:14px;
     font-weight:600;
     cursor:pointer;
-    ${({$active})=>$active?css`
-        color:${({theme})=>theme.colors.mainColor}
-    `:css`
+    ${({ $active }) => $active ? css`
+        color:${({ theme }) => theme.colors.mainColor}
+    `: css`
         color:rgba(255, 255, 255, 0.28);
     `}
 `;
 
-const MainAssets=styled.div`
+const MainAssets = styled.div`
     background: rgba(0, 8, 20, 0.68);
     backdrop-filter: blur(6px);
     /* Note: backdrop-filter has minimal browser support */
@@ -98,7 +98,7 @@ const MainAssets=styled.div`
     
 `;
 
-const SearchPan=styled.div`
+const SearchPan = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -108,7 +108,7 @@ const SearchPan=styled.div`
     margin-top:-65px;
 `;
 
-const Search=styled.div`
+const Search = styled.div`
     position:relative;
     & input{
         width: 250px;
@@ -129,7 +129,7 @@ const Search=styled.div`
     
 `;
 
-const StyledSelect=styled.select`
+const StyledSelect = styled.select`
     width: 120px;
     height: 40px;
     font-size: 14px;
@@ -141,7 +141,7 @@ const StyledSelect=styled.select`
     padding-left: 12px;
 `;
 
-const UploaAssetBtn=styled.button`
+const UploaAssetBtn = styled.button`
 
     align-items: center;
     padding: 15px 0px;
@@ -158,7 +158,7 @@ const UploaAssetBtn=styled.button`
     font-weight:600;
 `;
 
-const ChractorGroup=styled.div`
+const ChractorGroup = styled.div`
     padding: 3px 10px;
     display:flex;
     flex-direction:row;
@@ -172,96 +172,122 @@ const ChractorGroup=styled.div`
     max-height:100%;
 `;
 
-const btns={
-    templatesBtn:[
+const btns = {
+    templatesBtn: [
         {
-            id:1,
-            text:'Characters',
-            tem:'charactors'
+            id: 1,
+            text: 'Characters',
+            tem: 'charactors'
         },
         {
-            id:2,
-            text:'Animals',
-            tem:'animals'
+            id: 2,
+            text: 'Animals',
+            tem: 'animals'
         },
         {
-            id:3,
-            text:'Cars',
-            tem:'cars'
+            id: 3,
+            text: 'Cars',
+            tem: 'cars'
         },
     ],
-    customizeBtn:[
+    customizeBtn: [
         {
-            id:1,
-            text:'Skin color',
-            tem:'colors'
+            id: 1,
+            text: 'Color',
+            tem: 'colors',
+            for: 'car'
         },
         {
-            id:2,
-            text:'Glasses',
-            tem:'glasses'
+            id: 2,
+            text: 'Face',
+            tem: 'glasses',
+            for: 'human'
         },
         {
-            id:3,
-            text:'Wings',
-            tem:'wings'
+            id: 3,
+            text: 'Backpack',
+            tem: 'wings',
+            for: 'human'
         },
         {
-            id:4,
-            text:'Headphone',
-            tem:'headphone'
+            id: 4,
+            text: 'Head',
+            tem: 'headphone',
+            for: 'human'
         },
-        // {
-        //     id:5,
-        //     text:'Hair',
-        //     tem:'hair'
-        // }
+        {
+            id: 5,
+            text: 'Roofbox',
+            tem: 'roofbox',
+            for: 'car'
+        },
+        {
+            id: 6,
+            text: 'Spoiler',
+            tem: 'spoiler',
+            for: 'car'
+        },
+
     ]
 
 };
 
-const AssetContainer=()=>{
-    const theme=useTheme();
-    const {state}=useGlobalContext();
-    const [templateBtn, setTemplateBtn]=useState(true);
-    const [charactorBtn, setChractorbtn]=useState({
-        id:1,
-        text:'Charactors',
-        tem:'charactors'
+const AssetContainer = () => {
+    const theme = useTheme();
+    const { state } = useGlobalContext();
+    const [templateBtn, setTemplateBtn] = useState(true);
+    const [charactorBtn, setChractorbtn] = useState({
+        id: 1,
+        text: 'Charactors',
+        tem: 'charactors'
     });
-    const [searchText, setSearchText]=useState('Search');
-    const [cardList, setCardList]=useState(models.templates.charactors);
-    const [btnList, setBtnList]=useState(btns.templatesBtn);
+    const [searchText, setSearchText] = useState('Search');
+    const [cardList, setCardList] = useState(models.templates.charactors);
+    const [btnList, setBtnList] = useState(btns.templatesBtn);
 
-    useEffect(()=>{
-        if(templateBtn){
+    useEffect(() => {
+        if (templateBtn) {
             setBtnList(btns.templatesBtn);
             setCardList(models.templates.charactors);
             setChractorbtn({
-                id:1,
-                text:'Charactors',
-                tem:'charactors'
+                id: 1,
+                text: 'Charactors',
+                tem: 'charactors'
             });
         }
-        else{
+        else {
             setBtnList(btns.customizeBtn);
-            setCardList(models.customize.colors);
-            setChractorbtn({
-                id:1,
-                text:'Skin color',
-                tem:'colors'
-            });
-        } 
-    },[templateBtn]);
+            if (state.currentModel.category === 'human') {
+                setCardList(models.customize.glasses);
+                setChractorbtn({
+                    id: 2,
+                    text: 'Glasses',
+                    tem: 'glasses',
+                    for: 'human'
+                });
+            }
+            else {
+                setCardList(models.customize.colors);
 
-    useEffect(()=>{
-        if(templateBtn){
+                setChractorbtn({
+                    id: 1,
+                    text: 'Skin color',
+                    tem: 'colors',
+                    for: 'car'
+                });
+            }
+
+        }
+    }, [templateBtn]);
+
+    useEffect(() => {
+        if (templateBtn) {
             setCardList(models.templates[charactorBtn.tem]);
         }
-        else{
+        else {
             setCardList(models.customize[charactorBtn.tem]);
         }
-        
+
     }, [charactorBtn]);
 
     return (
@@ -269,31 +295,42 @@ const AssetContainer=()=>{
             <MainBtnGroup>
                 <MainBtn
                     $active={templateBtn}
-                    onClick={()=>{
+                    onClick={() => {
                         setTemplateBtn(true);
                     }}
                 >
-                    <MultiFolderIcon fill={templateBtn?theme.colors.mainColor:'rgba(255, 255, 255, 0.46)'}/>
+                    <MultiFolderIcon fill={templateBtn ? theme.colors.mainColor : 'rgba(255, 255, 255, 0.46)'} />
                     <p className="text">Templates</p>
                 </MainBtn>
                 <MainBtn
                     $active={!templateBtn}
                     $disabled={!state.currentModel.customizable}
-                    onClick={()=>{
-                        if(!state.currentModel.customizable)return;
+                    onClick={() => {
+                        if (!state.currentModel.customizable) return;
                         setTemplateBtn(false);
                     }}
                 >
-                    <EditIcon fill={!templateBtn?theme.colors.mainColor:'rgba(255, 255, 255, 0.46)'}/>
+                    <EditIcon fill={!templateBtn ? theme.colors.mainColor : 'rgba(255, 255, 255, 0.46)'} />
                     <p className="text">Customize</p>
                 </MainBtn>
             </MainBtnGroup>
             <CharactorBtnGroup>
-                {btnList.map((v,k)=>
+                {!templateBtn && btnList.map((v, k) =>
+                    v.for === state.currentModel.category && <CharactorBtn
+                        key={k}
+                        $active={v.id === charactorBtn.id}
+                        onClick={() => {
+                            setChractorbtn(v);
+                        }}
+                    >
+                        {v.text}
+                    </CharactorBtn>
+                )}
+                {templateBtn && btnList.map((v, k) =>
                     <CharactorBtn
                         key={k}
-                        $active={v.id===charactorBtn.id}
-                        onClick={()=>{
+                        $active={v.id === charactorBtn.id}
+                        onClick={() => {
                             setChractorbtn(v);
                         }}
                     >
@@ -304,9 +341,9 @@ const AssetContainer=()=>{
             <MainAssets>
                 <SearchPan>
                     <Search>
-                        <input type='text' 
-                            value={searchText} 
-                            onChange={(e)=>{
+                        <input type='text'
+                            value={searchText}
+                            onChange={(e) => {
                                 setSearchText(e.target.value);
                             }}
                         />
@@ -318,21 +355,21 @@ const AssetContainer=()=>{
                 </SearchPan>
                 <ChractorGroup>
                     {
-                        cardList.map((v,k)=>(
+                        cardList.map((v, k) => (
                             <CharactorCard
                                 key={k}
                                 data={v}
-                               
+
                             />
                         ))
                     }
-                    
+
                 </ChractorGroup>
                 <UploaAssetBtn>
                     Upload asset
                 </UploaAssetBtn>
             </MainAssets>
-            
+
         </Container>
     )
 };

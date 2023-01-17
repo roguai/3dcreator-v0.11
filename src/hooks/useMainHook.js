@@ -19,7 +19,8 @@ const initialState={
     },
     currentModel:{
         Preview:props=><Cyperpuck position={[0,-1,0]} {...props}/>,
-        customizable:false
+        customizable:false,
+        category:''
     }
 };
 
