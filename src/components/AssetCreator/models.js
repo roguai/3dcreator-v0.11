@@ -66,7 +66,8 @@ import hyperconceptcar from '../../assets/images/cards/hyper_concept_car.png';
 import modernsupercar from '../../assets/images/cards/modern_supercar.png';
 import selvahypercar from '../../assets/images/cards/selva_hypercar.png';
 import supercar from '../../assets/images/cards/supercar.png';
-import Door4 from '../../assets/models/templates/Cars/Door4';
+// import Door4 from '../../assets/models/templates/Cars/Door4';
+import Door4 from '../../assets/models/customize/Door4';
 import Futuristiccar from '../../assets/models/templates/Cars/Futuristic_car';
 import Hyperconceptcar from '../../assets/models/templates/Cars/Hyper_concept_car';
 import Modernsupercar from '../../assets/models/templates/Cars/Modern_supercar';
@@ -218,7 +219,7 @@ const carList=[
         btnText:'0.44 REIGN',
         Preview:(props)=><Door4 position={[0,-1,0]} scale={0.004} {...props}/>,
         iscustomize:false,
-        customizable:false
+        customizable:true
     },
     {
         team:'Reitio team',
