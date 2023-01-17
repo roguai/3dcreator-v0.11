@@ -286,13 +286,23 @@ const templates={
 const colors=[
     {
         team:'Reitio team',
+        name:'No color',
+        img:defaultcard,
+        badge:'',
+        btnText:'Default',
+        iscustomize:true,
+        category:'color',
+        val:''
+    },
+    {
+        team:'Reitio team',
         name:'Red skin color',
         img:colorcard1,
         badge:'',
         btnText:'Default',
         iscustomize:true,
         category:'color',
-        val:1
+        val:'#eb5757'
     },
     {
         team:'Reitio team',
@@ -302,7 +312,7 @@ const colors=[
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:2
+        val:'#f2994a'
     },
     {
         team:'Reitio team',
@@ -312,7 +322,7 @@ const colors=[
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:3
+        val:'#f2994a'
     },
     {
         team:'Reitio team',
@@ -322,7 +332,7 @@ const colors=[
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:4
+        val:'#219653'
     },
     {
         team:'Reitio team',
@@ -332,7 +342,7 @@ const colors=[
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:5
+        val:'#27ae60'
     },
     {
         team:'Reitio team',
@@ -342,7 +352,7 @@ const colors=[
         btnText:'0.44 REIGN',
         iscustomize:true,
         category:'color',
-        val:6
+        val:'#6fcf97'
     },
     
 ];

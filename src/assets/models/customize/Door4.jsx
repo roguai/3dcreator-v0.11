@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.1.3 4doorv8.glb -T
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useGlobalContext } from '../../../components/App/context'
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/models/templates/Cars/4doorv8-transformed.glb')
+  const {state}=useGlobalContext();
+  const {color}=state.modelcustomize;
   return (
     <group {...props} dispose={null}>
       <group position={[-36.98, 47.7, -83.64]} rotation={[Math.PI / 2, 0, 0]} scale={-100}>
@@ -85,10 +88,12 @@ export default function Model(props) {
         <mesh geometry={nodes['extra_engine_details001_Black_plastic_(cube_projection_3)_0'].geometry} material={materials.Black_plastic_cube_projection_3} />
         <mesh geometry={nodes['extra_engine_details001_Metal_(cube_projection_5)_0'].geometry} material={materials.Metal_cube_projection_5} />
       </group>
+      {/* front */}
       <group position={[2.17, 93.09, 103.54]} rotation={[-Math.PI / 2, 0, 0]} scale={[105.68, 100, 100]}>
-        <mesh geometry={nodes['Main_body005_Black_plastic_(cube_projection_3)_0'].geometry} material={materials.Black_plastic_cube_projection_3} />
-        <mesh geometry={nodes['Main_body005_SHC_Procedural_metallic_Car_Paint_2_(cube_project'].geometry} material={materials.SHC_Procedural_metallic_Car_Paint_2_cube_projection_10} />
+        <mesh geometry={nodes['Main_body005_Black_plastic_(cube_projection_3)_0'].geometry} material={materials.Black_plastic_cube_projection_3} material-color={'#f00'} />
+        <mesh geometry={nodes['Main_body005_SHC_Procedural_metallic_Car_Paint_2_(cube_project'].geometry} material={materials.SHC_Procedural_metallic_Car_Paint_2_cube_projection_10} material-color={color} />
       </group>
+      {/* back */}
       <group position={[2.17, 123.09, -138.46]} rotation={[-Math.PI / 2, 0, 0]} scale={[105.68, 100, 100]}>
         <mesh geometry={nodes['Main_body007_Black_Trim_(cube_projection_50)_0'].geometry} material={materials.Black_Trim_cube_projection_50} />
         <mesh geometry={nodes.Main_body007_Glass_black_edge_0.geometry} material={materials.Glass_black_edge} />
@@ -99,6 +104,7 @@ export default function Model(props) {
         <mesh geometry={nodes['Main_body007_Tinted_car_glass_(cube_projection_50)_0'].geometry} material={materials.Tinted_car_glass_cube_projection_50} />
         <mesh geometry={nodes['Main_body007_White_leather_(cube_projection_3)_0'].geometry} material={materials.White_leather_cube_projection_3} />
       </group>
+      {/* body */}
       <group position={[2.17, 3.09, -16.46]} rotation={[-Math.PI / 2, 0, 0]} scale={[105.68, 100, 100]}>
         <mesh geometry={nodes['Main_body019_Black_leather_(cube_projection_3)_0'].geometry} material={materials.Black_leather_cube_projection_3} />
         <mesh geometry={nodes['Main_body019_Black_leather_(cube_projection_3)_0001'].geometry} material={materials.Black_leather_cube_projection_3} />

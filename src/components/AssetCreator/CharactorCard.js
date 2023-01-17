@@ -99,6 +99,9 @@ const CharactorCard = ({ data }) => {
             else if(category==='glass'){
                 v={glass:val}
             }
+            else if(category==='color'){
+                v={color:val}
+            }
             changeModelcustomize(v);
         }
     }

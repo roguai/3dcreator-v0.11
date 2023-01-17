@@ -14,7 +14,8 @@ const initialState={
     modelcustomize:{
         wing:0,
         ear:0,
-        glass:0
+        glass:0,
+        color:''
     },
     currentModel:{
         Preview:props=><Cyperpuck position={[0,-1,0]} {...props}/>,
