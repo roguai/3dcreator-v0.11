@@ -7,6 +7,7 @@ import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar.png';
 import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
+import nearIcon from '../../assets/images/nearlogo.png';
 
 
 const Container = styled.div`
@@ -121,9 +122,25 @@ const Wallet = styled.div`
     width: 500px;
     height: 74px;
     margin-top:36px;
-
+    text-align:left;
     background: #1E1A2F;
     border-radius: 10px;
+
+    & img{
+        position:relative;
+        width: 50px;
+        height: 50px;
+        margin-left: 22px;
+        margin-top: 14px;
+    }
+    & p{
+        position: absolute;
+        margin-left: 89px;
+        font-size: 22px;
+        margin-top: -45px;
+        font-weight: bold;
+    
+    }
 `;
 
 const ConnectBtn = styled.button`
@@ -149,7 +166,7 @@ const BottomText = styled.p`
     font-size: 16px;
     line-height: 150%;
     /* identical to box height, or 24px */
-
+    
     text-align: center;
 
     color: rgba(255, 255, 255, 0.9);
@@ -218,7 +235,10 @@ const Header = () => {
                     <img src={walletIcon} />
                     <Title>Connect wallet</Title>
                     <Text>Choose your wallet to sign in</Text>
-                    <Wallet></Wallet>
+                    <Wallet>
+                        <img src={nearIcon} />
+                        <p>NEAR Wallet</p>
+                    </Wallet>
                     <ConnectBtn
                         onClick={() => {
                             changeProfile('Unnamed', true);
