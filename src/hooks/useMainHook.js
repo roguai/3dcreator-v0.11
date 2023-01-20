@@ -8,7 +8,9 @@ const initialState={
     isModalOpen:{status:false, name:''},
     profile:{
         iswalletConnect:false,
-        username:'Unnamed'
+        username:'Unnamed',
+        accountId:'',
+        balance:''
     },
     theme:'default',
     modelcustomize:{
@@ -31,8 +33,8 @@ const useMainHook=()=>{
         dispatch(ACTIONS.modal(name));
     };
 
-    const changeProfile=(username, isw=true)=>{
-        dispatch(ACTIONS.changeProfile(username, isw));
+    const changeProfile=(username, isw=true, accountId, balance)=>{
+        dispatch(ACTIONS.changeProfile(username, isw, accountId, balance));
     }
 
     const changeTheme=(theme)=>{

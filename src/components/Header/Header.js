@@ -171,20 +171,58 @@ const BottomText = styled.p`
 
     color: rgba(255, 255, 255, 0.9);
     margin-top:19px;
-`
+`;
+
+const AvatarBtnGroup = styled.div`
+    position:absolute;
+    top:50px;
+    margin:20px;
+    width:150px;
+    background:#040b15;
+    color:white;
+    display:block;
+    & button{
+        border:0;
+        font-size:15px;
+        color:white;
+        line-height:15px;
+        width:100%;
+        background:#040b15;
+        padding: 10px;
+        cursor:pointer;
+        &:hover{
+            background:#14253e;
+        }
+    }
+`;
 
 
-const Header = () => {
+const Header = (props) => {
     const navigate = useNavigate();
+    const { currentUser, nearConfig, wallet } = props;
+    const signOut = () => {
+        wallet.signOut();
+        window.location.replace(
+            window.location.origin + window.location.pathname
+        );
+        // changeProfile('', false);
+    };
+    const signIn = () => {
+        wallet.requestSignIn(nearConfig.contractName, "NEAR Block Dice");
+        // changeProfile('', true);
+    }
+
+
     const { state, changeProfile } = useGlobalContext();
     const [isopenWallet, setIsopenWallet] = useState(false);
+    const [avatarBtngroupOpen, setAvatarBtngroupOpen] = useState(false);
     const ref = useRef();
     const ref1 = useRef();
+
     const handleOutsideofRef = (e) => {
-        if (ref.current && !ref.current.contains(e.target) && ref1.current!==e.target) {
+        if (ref.current && !ref.current.contains(e.target) && ref1.current !== e.target) {
             setIsopenWallet(false);
         }
-
     }
 
     useEffect(() => {
@@ -193,6 +231,7 @@ const Header = () => {
             document.removeEventListener('click', handleOutsideofRef);
         }
     }, [ref])
+
     return (
         <Container>
             <LogoContainer>
@@ -212,10 +251,22 @@ const Header = () => {
                     <Crypto crypto="retio" amount="5000 REIGN" />
                     <Avatar
                         onClick={() => {
-                            navigate('/profile');
+                            setAvatarBtngroupOpen(!avatarBtngroupOpen);
                         }}
                         src={avatar}
                     />
+                    <AvatarBtnGroup style={{ display: avatarBtngroupOpen ? 'block' : 'none' }}>
+                        <button
+                            onClick={() => {
+                                navigate('/profile');
+                            }}
+                        >Profile</button>
+                        <button
+                            onClick={() => {
+                                signOut();
+                            }}
+                        >Sign Out</button>
+                    </AvatarBtnGroup>
                 </AvatarContainer>
             }
             {
@@ -241,8 +292,9 @@ const Header = () => {
                     </Wallet>
                     <ConnectBtn
                         onClick={() => {
-                            changeProfile('Unnamed', true);
-                            setIsopenWallet(false);
+                            // changeProfile('Unnamed', true);
+                            // setIsopenWallet(false);
+                            signIn()
                         }}
                     >Connect</ConnectBtn>
                     <BottomText>Terms and Conditions</BottomText>

@@ -75,11 +75,6 @@ const CharatorPan = styled.div`
    
 `;
 
-// function Model({url}){
-//     const {scene}=useGLTF(url);
-//     return <primitive object={scene} />
-// }
-
 /**
  * 
  * @param {*} param0 
@@ -90,7 +85,6 @@ const PreviewCharactor = () => {
     const [y, setY] = useState(0);
     const {state}=useGlobalContext();
     const Preview=state.currentModel.Preview;
-    console.log(state.modelcustomize)
     return (
         <Container>
 

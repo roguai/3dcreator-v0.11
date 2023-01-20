@@ -20,17 +20,31 @@ export const Conatiner = styled.div`
   overflow:auto;
 `;
 
-const App = () => {
-  const { state } = useGlobalContext();
+const App = (props) => {
+
+  const {currentUser}=props;
+
+  const { state, changeProfile } = useGlobalContext();
+  useEffect(()=>{
+    if(currentUser){
+      console.log('this!!', currentUser)
+      changeProfile('Unnamed', true, currentUser.accountId, currentUser.balance);
+    }
+    else {
+      changeProfile('', false,'','')
+    }
+    
+  }, [currentUser])
+
   const navigate=useNavigate();
   const isModalOpen = state.isModalOpen.status;
   useEffect(()=>{
     navigate('/assetcreator')
-  }, [])
+  }, []);
   return (
     <Wrapper>
       {isModalOpen && <Modal />}
-      <Header />
+      <Header {...props}/>
       <Sidebar />
       <Conatiner>
         <Outlet />

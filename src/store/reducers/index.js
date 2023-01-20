@@ -15,7 +15,9 @@ export const mainReducer=(state, action)=>{
             ...state,
             profile:{
                 username:action.payload.username,
-                iswalletConnect:action.payload.iswalletConnect
+                iswalletConnect:action.payload.iswalletConnect,
+                accountId:action.payload.accountId,
+                balance:action.payload.balance
             }
         }
     }
