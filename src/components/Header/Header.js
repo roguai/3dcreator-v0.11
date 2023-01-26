@@ -9,6 +9,8 @@ import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
 import nearIcon from '../../assets/images/nearlogo.png';
 
+import {signin, signout} from '../../utils';
+
 
 const Container = styled.div`
     position: fixed;
@@ -197,23 +199,11 @@ const AvatarBtnGroup = styled.div`
 `;
 
 
-const Header = (props) => {
-    const navigate = useNavigate();
-    const { currentUser, nearConfig, wallet } = props;
-    const signOut = () => {
-        wallet.signOut();
-        window.location.replace(
-            window.location.origin + window.location.pathname
-        );
-        // changeProfile('', false);
-    };
-    const signIn = () => {
-        wallet.requestSignIn(nearConfig.contractName, "REITIO test");
-        // changeProfile('', true);
-    }
+const Header = () => {
+    const navigate = useNavigate();    
 
 
-    const { state, changeProfile } = useGlobalContext();
+    const { state } = useGlobalContext();
     const [isopenWallet, setIsopenWallet] = useState(false);
     const [avatarBtngroupOpen, setAvatarBtngroupOpen] = useState(false);
     const ref = useRef();
@@ -263,7 +253,7 @@ const Header = (props) => {
                         >Profile</button>
                         <button
                             onClick={() => {
-                                signOut();
+                                signout();
                             }}
                         >Sign Out</button>
                     </AvatarBtnGroup>
@@ -294,7 +284,7 @@ const Header = (props) => {
                         onClick={() => {
                             // changeProfile('Unnamed', true);
                             // setIsopenWallet(false);
-                            signIn()
+                            signin()
                         }}
                     >Connect</ConnectBtn>
                     <BottomText>Terms and Conditions</BottomText>

@@ -10,7 +10,7 @@ import { ReactComponent as InformIcon } from '../../assets/images/Information-ci
 import { ReactComponent as ArrowDownIcon } from '../../assets/images/arrow-down.svg';
 import { ReactComponent as CloseIcon } from '../../assets/images/Close.svg';
 import { ReactComponent as CheckIcon } from '../../assets/images/checkicon.svg';
-
+const BN=require('bn.js');
 
 const Conatiner = styled.div`
     width:320px;
@@ -227,6 +227,23 @@ const DeployContainer = () => {
     const handleSave = () => {
         toast(<Msg />);
     }
+
+    const mintNFTNEAR=async()=>{
+        await window.contract.nft_mint(
+            {
+                token_id:`${window.accountId}-test-token`,
+                metadata:{
+                    title:'Reitio NFT test',
+                    description:'Game item',
+                    media:'https://bafkreigt3tlnsn2skhslgv4kdta2zbvoebwavxv3novb7kszlkzgmqjzmq.ipfs.nftstorage.link/'
+                },
+                receiver_id:window.accountId
+            },
+            300000000000000,
+            new BN("1000000000000000000000000")
+
+        )
+    }
     return (
         <Conatiner>
             <ToastContainer
@@ -318,6 +335,10 @@ const DeployContainer = () => {
                     </BottomBtn>
                     <BottomBtn
                         $active
+                        onClick={()=>{
+                            handleSave();
+                            mintNFTNEAR();
+                        }}
                     >
                         Deploy
                     </BottomBtn>

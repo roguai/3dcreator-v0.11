@@ -1,5 +1,8 @@
+
+import "regenerator-runtime/runtime";
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../shared/Wrapper/Wrapper';
 import { useGlobalContext } from './context';
@@ -20,20 +23,18 @@ export const Conatiner = styled.div`
   overflow:auto;
 `;
 
-const App = (props) => {
-
-  const {currentUser}=props;
+const App = () => {
 
   const { state, changeProfile } = useGlobalContext();
   useEffect(()=>{
-    if(currentUser){
-      changeProfile('Unnamed', true, currentUser.accountId, currentUser.balance);
+    if(window.currentUser!=''){
+      changeProfile('Unnamed', true, window.currentUser.accountId, window.currentUser.balance);
     }
     else {
       changeProfile('', false,'','')
     }
     
-  }, [currentUser])
+  }, [window.currentUser])
 
   const navigate=useNavigate();
   const isModalOpen = state.isModalOpen.status;
@@ -43,7 +44,7 @@ const App = (props) => {
   return (
     <Wrapper>
       {isModalOpen && <Modal />}
-      <Header {...props}/>
+      <Header />
       <Sidebar />
       <Conatiner>
         <Outlet />

@@ -12,46 +12,45 @@ import Profile from './components/Profile/Profile';
 import ErrorPage from './components/RouteErrorPage';
 
 // initializing contract
-import * as nearAPI from "near-api-js";
-import getConfig from './config';
+import { initContract } from './utils';
 
-async function initContract() {
-  const nearConfig = getConfig("testnet");
+// async function initContract() {
+//   const nearConfig = getConfig("testnet");
 
-  const near = await nearAPI.connect({
-    deps: {
-      keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore()
-    },
-    ...nearConfig
-  });
+//   const near = await nearAPI.connect({
+//     deps: {
+//       keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore()
+//     },
+//     ...nearConfig
+//   });
 
-  const walletConncection = new nearAPI.WalletConnection(near);
+//   const walletConncection = new nearAPI.WalletConnection(near);
 
-  let currentUser;
-  if (walletConncection.getAccountId()) {
-    currentUser = {
-      accountId: walletConncection.getAccountId(),
-      balance: (await walletConncection.account().state()).amount
-    }
-  }
+//   let currentUser;
+//   if (walletConncection.getAccountId()) {
+//     currentUser = {
+//       accountId: walletConncection.getAccountId(),
+//       balance: (await walletConncection.account().state()).amount
+//     }
+//   }
 
-  const contract = await new nearAPI.Contract(walletConncection.account(), nearConfig.contractName, {
-    viewMethods: ["read"],
-    changeMethods: ["create_update"],
-    sender: walletConncection.getAccountId()
-  });
-  return { contract, currentUser, nearConfig, walletConncection };
-}
+//   const contract = await new nearAPI.Contract(walletConncection.account(), nearConfig.contractName, {
+//     viewMethods: ["read"],
+//     changeMethods: ["create_update"],
+//     sender: walletConncection.getAccountId()
+//   });
+//   return { contract, currentUser, nearConfig, walletConncection };
+// }
 
 const root = createRoot(document.getElementById("root"));
 
 
-window.nearInitPromise = initContract().then(({ contract, currentUser, nearConfig, walletConncection }) => {
+window.nearInitPromise = initContract().then(() => {
   root.render(
     <AppProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<App contract={contract} currentUser={currentUser} nearConfig={nearConfig} wallet={walletConncection} />}>
+          <Route path='/' element={<App />}>
             <Route index path='/assetcreator' element={<AssetCreator />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='*' element={<ErrorPage />} />
