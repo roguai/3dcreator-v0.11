@@ -27,7 +27,6 @@ const App = (props) => {
   const { state, changeProfile } = useGlobalContext();
   useEffect(()=>{
     if(currentUser){
-      console.log('this!!', currentUser)
       changeProfile('Unnamed', true, currentUser.accountId, currentUser.balance);
     }
     else {

@@ -208,7 +208,7 @@ const Header = (props) => {
         // changeProfile('', false);
     };
     const signIn = () => {
-        wallet.requestSignIn(nearConfig.contractName, "NEAR Block Dice");
+        wallet.requestSignIn(nearConfig.contractName, "REITIO test");
         // changeProfile('', true);
     }
 

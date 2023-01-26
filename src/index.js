@@ -25,7 +25,6 @@ async function initContract() {
     ...nearConfig
   });
 
-  console.log(near)
   const walletConncection = new nearAPI.WalletConnection(near);
 
   let currentUser;
@@ -41,7 +40,6 @@ async function initContract() {
     changeMethods: ["create_update"],
     sender: walletConncection.getAccountId()
   });
-  console.log(contract)
   return { contract, currentUser, nearConfig, walletConncection };
 }
 
