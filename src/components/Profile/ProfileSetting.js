@@ -123,6 +123,8 @@ const Button=styled.button`
 `
 
 const ProfileSetting=({setIsSetting})=>{
+    const {state}=useGlobalContext();
+    const {accountId, balance}=state.profile;
     const [username, setUsername]=useState('');
     const [bio, setBio]=useState('');
     const {changeProfile}=useGlobalContext();
@@ -155,7 +157,7 @@ const ProfileSetting=({setIsSetting})=>{
                 <InputArea>
                     <Label>Wallet address</Label>
                     <WalletAdress>
-                        <WalletAdressText type="text" readOnly={true} value="0x314432c4af432jbccsa4534jnbhy534234"/>
+                        <WalletAdressText type="text" readOnly={true} value={accountId}/>
                         <WalletAdressCopy>
                             <img src={copyIcon} />
                         </WalletAdressCopy>

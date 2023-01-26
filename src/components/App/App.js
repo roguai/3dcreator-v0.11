@@ -1,5 +1,8 @@
+
+import "regenerator-runtime/runtime";
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../shared/Wrapper/Wrapper';
 import { useGlobalContext } from './context';
@@ -21,12 +24,23 @@ export const Conatiner = styled.div`
 `;
 
 const App = () => {
-  const { state } = useGlobalContext();
+
+  const { state, changeProfile } = useGlobalContext();
+  useEffect(()=>{
+    if(window.currentUser!=''){
+      changeProfile('Unnamed', true, window.currentUser.accountId, window.currentUser.balance);
+    }
+    else {
+      changeProfile('', false,'','')
+    }
+    
+  }, [window.currentUser])
+
   const navigate=useNavigate();
   const isModalOpen = state.isModalOpen.status;
   useEffect(()=>{
     navigate('/assetcreator')
-  }, [])
+  }, []);
   return (
     <Wrapper>
       {isModalOpen && <Modal />}

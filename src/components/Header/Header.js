@@ -7,6 +7,9 @@ import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar.png';
 import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
+import nearIcon from '../../assets/images/nearlogo.png';
+
+import {signin, signout} from '../../utils';
 
 
 const Container = styled.div`
@@ -121,9 +124,25 @@ const Wallet = styled.div`
     width: 500px;
     height: 74px;
     margin-top:36px;
-
+    text-align:left;
     background: #1E1A2F;
     border-radius: 10px;
+
+    & img{
+        position:relative;
+        width: 50px;
+        height: 50px;
+        margin-left: 22px;
+        margin-top: 14px;
+    }
+    & p{
+        position: absolute;
+        margin-left: 89px;
+        font-size: 22px;
+        margin-top: -45px;
+        font-weight: bold;
+    
+    }
 `;
 
 const ConnectBtn = styled.button`
@@ -149,25 +168,51 @@ const BottomText = styled.p`
     font-size: 16px;
     line-height: 150%;
     /* identical to box height, or 24px */
-
+    
     text-align: center;
 
     color: rgba(255, 255, 255, 0.9);
     margin-top:19px;
-`
+`;
+
+const AvatarBtnGroup = styled.div`
+    position:absolute;
+    top:50px;
+    margin:20px;
+    width:150px;
+    background:#040b15;
+    color:white;
+    display:block;
+    & button{
+        border:0;
+        font-size:15px;
+        color:white;
+        line-height:15px;
+        width:100%;
+        background:#040b15;
+        padding: 10px;
+        cursor:pointer;
+        &:hover{
+            background:#14253e;
+        }
+    }
+`;
 
 
 const Header = () => {
-    const navigate = useNavigate();
-    const { state, changeProfile } = useGlobalContext();
+    const navigate = useNavigate();    
+
+
+    const { state } = useGlobalContext();
     const [isopenWallet, setIsopenWallet] = useState(false);
+    const [avatarBtngroupOpen, setAvatarBtngroupOpen] = useState(false);
     const ref = useRef();
     const ref1 = useRef();
+
     const handleOutsideofRef = (e) => {
-        if (ref.current && !ref.current.contains(e.target) && ref1.current!==e.target) {
+        if (ref.current && !ref.current.contains(e.target) && ref1.current !== e.target) {
             setIsopenWallet(false);
         }
-
     }
 
     useEffect(() => {
@@ -176,6 +221,7 @@ const Header = () => {
             document.removeEventListener('click', handleOutsideofRef);
         }
     }, [ref])
+
     return (
         <Container>
             <LogoContainer>
@@ -195,10 +241,22 @@ const Header = () => {
                     <Crypto crypto="retio" amount="5000 REIGN" />
                     <Avatar
                         onClick={() => {
-                            navigate('/profile');
+                            setAvatarBtngroupOpen(!avatarBtngroupOpen);
                         }}
                         src={avatar}
                     />
+                    <AvatarBtnGroup style={{ display: avatarBtngroupOpen ? 'block' : 'none' }}>
+                        <button
+                            onClick={() => {
+                                navigate('/profile');
+                            }}
+                        >Profile</button>
+                        <button
+                            onClick={() => {
+                                signout();
+                            }}
+                        >Sign Out</button>
+                    </AvatarBtnGroup>
                 </AvatarContainer>
             }
             {
@@ -218,11 +276,15 @@ const Header = () => {
                     <img src={walletIcon} />
                     <Title>Connect wallet</Title>
                     <Text>Choose your wallet to sign in</Text>
-                    <Wallet></Wallet>
+                    <Wallet>
+                        <img src={nearIcon} />
+                        <p>NEAR Wallet</p>
+                    </Wallet>
                     <ConnectBtn
                         onClick={() => {
-                            changeProfile('Unnamed', true);
-                            setIsopenWallet(false);
+                            // changeProfile('Unnamed', true);
+                            // setIsopenWallet(false);
+                            signin()
                         }}
                     >Connect</ConnectBtn>
                     <BottomText>Terms and Conditions</BottomText>

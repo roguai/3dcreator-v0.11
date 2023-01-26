@@ -7,10 +7,10 @@ export const modal=(name)=>{
     }
 }
 
-export const changeProfile=(username, isw)=>{
+export const changeProfile=(username, isw, accountId, balance)=>{
     return {
         type:ACTION_TYPES.CHANGE_PROFILE,
-        payload:{username: username, iswalletConnect:isw}
+        payload:{username: username, iswalletConnect:isw, accountId:accountId, balance:balance}
     }
 }
 

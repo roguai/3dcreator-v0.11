@@ -32,6 +32,7 @@ const WalletInfo = styled.div`
     line-height: 18px;
     font-size: 18px;
     font-weight: 500;
+    overflow:hidden;
     &:before{
         content: '';
         position: absolute;
@@ -68,7 +69,8 @@ const WelcomMsg=styled.p`
 
 const ProfileInfo = ({setIsSetting}) => {
     const {state}=useGlobalContext();
-    const username=state.profile.username;
+    const {username, accountId, balance}=state.profile;
+    console.log(state.profile)
     return (
         <Conatiner>
             <Avatar 
@@ -78,7 +80,8 @@ const ProfileInfo = ({setIsSetting}) => {
             <Nav>
                 <WalletInfo>
                     {/* <EtherLogo src={etherLogo} /> */}
-                    0x314413...fee810
+                    {/* 0x314413...fee810fffffffffffffffff */}
+                    {accountId}
                 </WalletInfo>
                 <SetBtn
                     onClick={()=>{
