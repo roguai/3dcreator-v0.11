@@ -116,7 +116,7 @@ impl Contract {
         this
     }
 
-    pub fn add_account_to_whitelist(&mut self, account_id:AccountId){
+    pub fn add_account_to_whitelist(&mut self, account_id:AccountId)->bool{
         if self.whitelist.len() <=100 {
             let is_registered=self.whitelist.contains(&account_id);
             if !is_registered{
