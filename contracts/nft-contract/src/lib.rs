@@ -117,10 +117,18 @@ impl Contract {
     }
 
     pub fn add_account_to_whitelist(&mut self, account_id:AccountId){
-        assert!(
-            self.whitelist.insert(&account_id),
-            "Account already exists"
-        );
+        if self.whitelist.len() <=100 {
+            let is_registered=self.whitelist.contains(&account_id);
+            if !is_registered{
+                self.whitelist.insert(&account_id)
+            }
+            else{
+                false
+            }   
+        }
+        else{
+            false
+        }
     }
 
     pub fn count_whitelist(&self)->u64{

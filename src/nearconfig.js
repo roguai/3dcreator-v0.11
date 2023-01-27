@@ -1,4 +1,4 @@
-const CONTRACT_NAME = "contract.mynftcontract1.testnet";
+const CONTRACT_NAME = "mynftcontract1.testnet";
 
 function getConfig(env) {
   switch (env) {
