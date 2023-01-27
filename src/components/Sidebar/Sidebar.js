@@ -67,7 +67,7 @@ const links = [
         icon: menuicon
     },
     {
-        to: '/assetcreator',
+        to: '/',
         icon: wheelicon
     },
     {
