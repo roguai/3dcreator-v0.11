@@ -78,7 +78,7 @@ impl Contract {
             owner_id,
             NFTContractMetadata {
                 spec: "nft-1.0.0".to_string(),
-                name: "NFT METAVERSE Contract".to_string(),
+                name: "NFT Contract".to_string(),
                 symbol: "REITIO".to_string(),
                 icon: None,
                 base_uri: None,

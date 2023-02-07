@@ -235,16 +235,16 @@ const DeployContainer = () => {
 
     const mintNFTNEAR = async () => {
         if (!state.profile.iswalletConnect || !isRegisteredToContract) {
-            toast(<Msg msg="First connect to your wallet and register to our contract" />);
+            toast(<Msg msg="First connect to your wallet" />);
             return;
         }
         await window.contract.nft_mint(
             {
                 token_id: `${window.accountId}-test-token`,
                 metadata: {
-                    title: 'Reitio NFT test',
-                    description: 'Game item',
-                    media: 'https://bafkreigt3tlnsn2skhslgv4kdta2zbvoebwavxv3novb7kszlkzgmqjzmq.ipfs.nftstorage.link/'
+                    title: 'Reitio 3D NFT',
+                    description: 'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
+                    media: 'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/'
                 },
                 receiver_id: window.accountId
             },
