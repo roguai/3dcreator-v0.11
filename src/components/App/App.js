@@ -38,9 +38,9 @@ const App = () => {
 
   const navigate=useNavigate();
   const isModalOpen = state.isModalOpen.status;
-  useEffect(()=>{
-    navigate('/assetcreator')
-  }, []);
+  // useEffect(()=>{
+  //   navigate('/assetcreator')
+  // }, []);
   return (
     <Wrapper>
       {isModalOpen && <Modal />}
