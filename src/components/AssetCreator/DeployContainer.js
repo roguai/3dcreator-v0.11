@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -10,7 +10,8 @@ import { ReactComponent as InformIcon } from '../../assets/images/Information-ci
 import { ReactComponent as ArrowDownIcon } from '../../assets/images/arrow-down.svg';
 import { ReactComponent as CloseIcon } from '../../assets/images/Close.svg';
 import { ReactComponent as CheckIcon } from '../../assets/images/checkicon.svg';
-const BN=require('bn.js');
+import { useGlobalContext } from "../App/context";
+const BN = require('bn.js');
 
 const Conatiner = styled.div`
     width:320px;
@@ -62,7 +63,7 @@ const MainBtn = styled.div`
     }
 `;
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     width:320px;
     position:absolute;
     top:89px;
@@ -207,11 +208,11 @@ const MsgContainer = styled.div`
         margin-top: 3px;
     }
 `;
-const Msg = ({closeToast}) => (
+const Msg = ({ closeToast, msg }) => (
     <MsgContainer>
         <CheckIcon id="check" />
-        Your asset has been saved
-        <CloseIcon 
+            {msg}
+        <CloseIcon
             id="close"
             onClick={closeToast}
         />
@@ -220,30 +221,64 @@ const Msg = ({closeToast}) => (
 
 const DeployContainer = () => {
     const theme = useTheme();
+    const { state } = useGlobalContext();
     const [deployBtn, setDeployBtn] = useState(true);
     const [displayName, setDisplayName] = useState('');
     const [description, setDescription] = useState('');
+    const [userCounter, setUserCounter] = useState(0);
+    const [hasNft, setHasNft] = useState(false);
+    const [isRegisteredToContract, setIsRegisteredToContract] = useState(false);
 
     const handleSave = () => {
-        toast(<Msg />);
-    }
+        toast(<Msg msg="Your asset has been saved" />);
+    };
 
-    const mintNFTNEAR=async()=>{
+    const mintNFTNEAR = async () => {
+        if (!state.profile.iswalletConnect || !isRegisteredToContract) {
+            toast(<Msg msg="First connect to your wallet" />);
+            return;
+        }
         await window.contract.nft_mint(
             {
-                token_id:`${window.accountId}-test-token`,
-                metadata:{
-                    title:'Reitio NFT test',
-                    description:'Game item',
-                    media:'https://bafkreigt3tlnsn2skhslgv4kdta2zbvoebwavxv3novb7kszlkzgmqjzmq.ipfs.nftstorage.link/'
+                token_id: `${window.accountId}-test-token`,
+                metadata: {
+                    title: 'Reitio 3D NFT',
+                    description: 'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
+                    media: 'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/'
                 },
-                receiver_id:window.accountId
+                receiver_id: window.accountId
             },
             300000000000000,
             new BN("1000000000000000000000000")
+        );
 
-        )
+    };
+
+    const registerToContractWhitelist = async () => {
+        if (!state.profile.iswalletConnect) {
+            toast(<Msg msg="First connect to your wallet" />);
+            return;
+        }
+        let su=await window.contract.add_account_to_whitelist({ account_id: window.accountId });
+        if(su){
+            toast(<Msg msg="Registered successfully" />);
+            setUserCounter(userCounter+1);
+        }
     }
+
+
+    useEffect(() => {
+        async function fetchData(){
+            setUserCounter(await window.contract.count_whitelist());
+            if(state.profile.iswalletConnect){
+                setIsRegisteredToContract(await window.contract.is_registered_to_whitelist({account_id:window.accountId}));
+            }
+            
+        }
+        fetchData();
+
+    }, [state.profile]);
+
     return (
         <Conatiner>
             <ToastContainer
@@ -251,8 +286,8 @@ const DeployContainer = () => {
                 autoClose="3000"
                 hideProgressBar={true}
                 style={{
-                    width:'433px',
-                    
+                    width: '433px',
+
                 }}
             />
             <MainBtnGroup>
@@ -324,10 +359,21 @@ const DeployContainer = () => {
                         <p>REIGN</p>
                     </StyledInput>
                 </InputGroup>
+                {/* <InputGroup>
+                    <span>{userCounter}</span>
+                    {!isRegisteredToContract && <button
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            registerToContractWhitelist();
+                        }}
+                    >register</button>}
+                    
+                </InputGroup> */}
 
                 <BtnGroup>
                     <BottomBtn
-                        onClick={() => {
+                        onClick={(e) => {
+                            e.preventDefault();
                             handleSave();
                         }}
                     >
@@ -335,10 +381,11 @@ const DeployContainer = () => {
                     </BottomBtn>
                     <BottomBtn
                         $active
-                        onClick={()=>{
-                            handleSave();
+                        onClick={(e) => {
+                            e.preventDefault();
                             mintNFTNEAR();
                         }}
+                        // disabled={state.profile.iswalletConnect && isRegisteredToContract ? false:true}
                     >
                         Deploy
                     </BottomBtn>

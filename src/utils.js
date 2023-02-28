@@ -41,8 +41,8 @@ export async function initContract() {
         window.walletConnection.account(),
         nearConfig.contractName,
         {
-            viewMethods:[""],
-            changeMethods:["nft_mint"]
+            viewMethods:["count_whitelist", "is_registered_to_whitelist"],
+            changeMethods:["nft_mint", "add_account_to_whitelist"]
         }
     );
 
