@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Crypto from "./Crypto";
 import ProgressBar from "./ProgressBar";
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo1.png';
 import avatar from '../../assets/images/avatar.png';
 import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
@@ -232,12 +232,11 @@ const Header = () => {
                 />
                 <ProgressBar value={40} />
             </LogoContainer>
-            {
-                state.profile.iswalletConnect &&
+           
                 <AvatarContainer>
                     {/* <Crypto crypto="bitcoin" amount="0.345 ETH" />
                     <Crypto crypto="litecoin" amount="8470 LTC" /> */}
-                    <Crypto crypto="retio" amount="0 REIGN" />
+                    <Crypto crypto="retio" amount="0 ROGU" />
                     <Avatar
                         onClick={() => {
                             setAvatarBtngroupOpen(!avatarBtngroupOpen);
@@ -257,18 +256,8 @@ const Header = () => {
                         >Sign Out</button>
                     </AvatarBtnGroup>
                 </AvatarContainer>
-            }
-            {
-                !state.profile.iswalletConnect &&
-                <AvatarContainer>
-                    <WalletConnectBtn
-                        ref={ref1}
-                        onClick={() => {
-                            setIsopenWallet(true);
-                        }}
-                    >Connect Wallet</WalletConnectBtn>
-                </AvatarContainer>
-            }
+           
+          
             {
                 isopenWallet &&
                 <WalletConnectContainer ref={ref}>

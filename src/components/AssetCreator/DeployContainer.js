@@ -356,7 +356,7 @@ const DeployContainer = () => {
                     <Label>Total</Label>
                     <StyledInput>
                         <input type={"text"} value="50,000" />
-                        <p>REIGN</p>
+                        <p>ROGU</p>
                     </StyledInput>
                 </InputGroup>
                 {/* <InputGroup>
@@ -385,6 +385,7 @@ const DeployContainer = () => {
                             e.preventDefault();
                             mintNFTNEAR();
                         }}
+                        style={{color:'black'}}
                         // disabled={state.profile.iswalletConnect && isRegisteredToContract ? false:true}
                     >
                         Deploy
