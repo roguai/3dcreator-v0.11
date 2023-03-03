@@ -80,7 +80,7 @@ import Supercar from '../../assets/models/templates/Cars/Supercar';
 
 const charactorList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Runner',
         img:cha5,
         badge:'',
@@ -91,7 +91,7 @@ const charactorList=[
         category:'human'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Bob',
         img:cha6,
         badge:'',
@@ -102,7 +102,7 @@ const charactorList=[
         category:'human'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Cyperpunk zaura',
         img:cha2,
         badge:'',
@@ -113,7 +113,7 @@ const charactorList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mega robot',
         img:cha3,
         badge:'',
@@ -124,7 +124,7 @@ const charactorList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot man',
         img:cha1,
         badge:'',
@@ -135,7 +135,7 @@ const charactorList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot Dinosaur',
         img:cha4,
         badge:'',
@@ -150,7 +150,7 @@ const charactorList=[
 
 const animalList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Cat',
         img:cat1,
         badge:'',
@@ -161,7 +161,7 @@ const animalList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Dog',
         img:dog1,
         badge:'',
@@ -172,7 +172,7 @@ const animalList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Horse',
         img:horse,
         badge:'',
@@ -183,7 +183,7 @@ const animalList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Kitten',
         img:kitten,
         badge:'',
@@ -194,7 +194,7 @@ const animalList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Rabbit',
         img:rabbit,
         badge:'',
@@ -205,7 +205,7 @@ const animalList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot dog',
         img:robotdog,
         badge:'',
@@ -219,7 +219,7 @@ const animalList=[
 
 const carList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'4 Door',
         img:door4,
         badge:'',
@@ -230,7 +230,7 @@ const carList=[
         category:'car'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Futuristic car',
         img:futuristiccar,
         badge:'',
@@ -241,7 +241,7 @@ const carList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Hyper concept',
         img:hyperconceptcar,
         badge:'',
@@ -252,7 +252,7 @@ const carList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Modern super car',
         img:modernsupercar,
         badge:'',
@@ -263,7 +263,7 @@ const carList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Selva hyper car',
         img:selvahypercar,
         badge:'',
@@ -274,7 +274,7 @@ const carList=[
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Super car',
         img:supercar,
         badge:'',
@@ -299,7 +299,7 @@ const templates={
 const colors=[
 
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Red',
         img:colorcard1,
         badge:'',
@@ -309,7 +309,7 @@ const colors=[
         val:'#eb5757'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Orange',
         img:colorcard2,
         badge:'',
@@ -319,7 +319,7 @@ const colors=[
         val:'#f2994a'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Yellow',
         img:colorcard3,
         badge:'Premium',
@@ -329,7 +329,7 @@ const colors=[
         val:'#f2c94c'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Dark green',
         img:colorcard4,
         badge:'',
@@ -339,7 +339,7 @@ const colors=[
         val:'#219653'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Green',
         img:colorcard5,
         badge:'',
@@ -349,7 +349,7 @@ const colors=[
         val:'#27ae60'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Light green',
         img:colorcard6,
         badge:'',
@@ -362,7 +362,7 @@ const colors=[
 ];
 const glasses=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -372,7 +372,7 @@ const glasses=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Glasses 1',
         img:glasscard2,
         badge:'',
@@ -382,7 +382,7 @@ const glasses=[
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Glasses 2',
         img:glasscard3,
         badge:'',
@@ -392,7 +392,7 @@ const glasses=[
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mask 1',
         img:glasscard4,
         badge:'',
@@ -402,7 +402,7 @@ const glasses=[
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mask 2',
         img:glasscard5,
         badge:'',
@@ -414,7 +414,7 @@ const glasses=[
 ];
 const wings=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -424,7 +424,7 @@ const wings=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 1',
         img:wingcard1,
         badge:'',
@@ -434,7 +434,7 @@ const wings=[
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 2',
         img:wingcard2,
         badge:'Premium',
@@ -444,7 +444,7 @@ const wings=[
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 3',
         img:wingcard3,
         badge:'Premium',
@@ -454,7 +454,7 @@ const wings=[
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 4',
         img:wingcard4,
         badge:'Premium',
@@ -466,7 +466,7 @@ const wings=[
 ];
 const headphone=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -476,7 +476,7 @@ const headphone=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 1',
         img:earcard1,
         badge:'Premium',
@@ -486,7 +486,7 @@ const headphone=[
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 2',
         img:earcard2,
         badge:'Premium',
@@ -496,7 +496,7 @@ const headphone=[
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 3',
         img:earcard3,
         badge:'Premium',
@@ -506,7 +506,7 @@ const headphone=[
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 4',
         img:earcard4,
         badge:'Premium',
@@ -520,7 +520,7 @@ const headphone=[
 
 const roofbox=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -530,7 +530,7 @@ const roofbox=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Roofbox',
         img:roofboxcard,
         badge:'Premium',
@@ -542,7 +542,7 @@ const roofbox=[
 ];
 const spoiler=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -552,7 +552,7 @@ const spoiler=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 1',
         img:spoilercard1,
         badge:'Premium',
@@ -562,7 +562,7 @@ const spoiler=[
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 2',
         img:spoilercard2,
         badge:'Premium',
@@ -572,7 +572,7 @@ const spoiler=[
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 3',
         img:spoilercard3,
         badge:'Premium',
@@ -584,14 +584,14 @@ const spoiler=[
 ]
 const masks=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Without mask',
         img:defaultcard,
         badge:'',
         btnText:'Default',
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Gas mask',
         img:mask1,
         badge:'',
