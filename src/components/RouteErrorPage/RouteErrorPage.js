@@ -16,9 +16,6 @@ const ErrorPage = () => {
     return (
         <Container>
             <h1>Coming soon</h1>
-            
-            
-          
         </Container>
     )
 };

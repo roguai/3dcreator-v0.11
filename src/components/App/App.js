@@ -49,7 +49,6 @@ const App = () => {
       <Conatiner>
         <Outlet />
       </Conatiner>
-
     </Wrapper>
   );
 };

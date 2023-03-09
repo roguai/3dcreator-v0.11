@@ -14,34 +14,6 @@ import ErrorPage from './components/RouteErrorPage';
 // initializing contract
 import { initContract } from './utils';
 
-// async function initContract() {
-//   const nearConfig = getConfig("testnet");
-
-//   const near = await nearAPI.connect({
-//     deps: {
-//       keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore()
-//     },
-//     ...nearConfig
-//   });
-
-//   const walletConncection = new nearAPI.WalletConnection(near);
-
-//   let currentUser;
-//   if (walletConncection.getAccountId()) {
-//     currentUser = {
-//       accountId: walletConncection.getAccountId(),
-//       balance: (await walletConncection.account().state()).amount
-//     }
-//   }
-
-//   const contract = await new nearAPI.Contract(walletConncection.account(), nearConfig.contractName, {
-//     viewMethods: ["read"],
-//     changeMethods: ["create_update"],
-//     sender: walletConncection.getAccountId()
-//   });
-//   return { contract, currentUser, nearConfig, walletConncection };
-// }
-
 const root = createRoot(document.getElementById("root"));
 
 
