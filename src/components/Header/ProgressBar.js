@@ -45,7 +45,6 @@ const Banner = styled.div`
 const ProgressBar = ({ value }) => {
     const theme=useTheme();
     return (
-
         <Container>
             <div>
                 <Progress>
@@ -58,9 +57,6 @@ const ProgressBar = ({ value }) => {
                 12
             </Banner>
         </Container>
-
-
-
     )
 };
 

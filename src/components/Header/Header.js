@@ -235,8 +235,6 @@ const Header = () => {
             {
                 state.profile.iswalletConnect &&
                 <AvatarContainer>
-                    {/* <Crypto crypto="bitcoin" amount="0.345 ETH" />
-                    <Crypto crypto="litecoin" amount="8470 LTC" /> */}
                     <Crypto crypto="retio" amount="0 REIGN" />
                     <Avatar
                         onClick={() => {
@@ -281,8 +279,6 @@ const Header = () => {
                     </Wallet>
                     <ConnectBtn
                         onClick={() => {
-                            // changeProfile('Unnamed', true);
-                            // setIsopenWallet(false);
                             signin()
                         }}
                     >Connect</ConnectBtn>

@@ -254,26 +254,9 @@ const DeployContainer = () => {
 
     };
 
-    const registerToContractWhitelist = async () => {
-        if (!state.profile.iswalletConnect) {
-            toast(<Msg msg="First connect to your wallet" />);
-            return;
-        }
-        let su=await window.contract.add_account_to_whitelist({ account_id: window.accountId });
-        if(su){
-            toast(<Msg msg="Registered successfully" />);
-            setUserCounter(userCounter+1);
-        }
-    }
-
-
     useEffect(() => {
         async function fetchData(){
-            setUserCounter(await window.contract.count_whitelist());
-            if(state.profile.iswalletConnect){
-                setIsRegisteredToContract(await window.contract.is_registered_to_whitelist({account_id:window.accountId}));
-            }
-            
+               
         }
         fetchData();
 
@@ -359,17 +342,6 @@ const DeployContainer = () => {
                         <p>REIGN</p>
                     </StyledInput>
                 </InputGroup>
-                {/* <InputGroup>
-                    <span>{userCounter}</span>
-                    {!isRegisteredToContract && <button
-                        onClick={(e)=>{
-                            e.preventDefault();
-                            registerToContractWhitelist();
-                        }}
-                    >register</button>}
-                    
-                </InputGroup> */}
-
                 <BtnGroup>
                     <BottomBtn
                         onClick={(e) => {
@@ -385,7 +357,6 @@ const DeployContainer = () => {
                             e.preventDefault();
                             mintNFTNEAR();
                         }}
-                        // disabled={state.profile.iswalletConnect && isRegisteredToContract ? false:true}
                     >
                         Deploy
                     </BottomBtn>

@@ -29,12 +29,7 @@ const AssetCreator = (props)=>{
         <Container>
             <AssetContainer />
             <PreviewCharactor />
-            
-           
-
             <DeployContainer />
-
-
         </Container>
     )
 };
