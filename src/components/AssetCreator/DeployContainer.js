@@ -11,7 +11,8 @@ import { ReactComponent as ArrowDownIcon } from '../../assets/images/arrow-down.
 import { ReactComponent as CloseIcon } from '../../assets/images/Close.svg';
 import { ReactComponent as CheckIcon } from '../../assets/images/checkicon.svg';
 import { useGlobalContext } from "../App/context";
-const BN = require('bn.js');
+import { mintNFTNEAR } from "../../chaintools/near";
+import { getPermissionForMintNFT } from "../../api/whitelist";
 
 const Conatiner = styled.div`
     width:320px;
@@ -211,7 +212,7 @@ const MsgContainer = styled.div`
 const Msg = ({ closeToast, msg }) => (
     <MsgContainer>
         <CheckIcon id="check" />
-            {msg}
+        {msg}
         <CloseIcon
             id="close"
             onClick={closeToast}
@@ -227,36 +228,36 @@ const DeployContainer = () => {
     const [description, setDescription] = useState('');
     const [userCounter, setUserCounter] = useState(0);
     const [hasNft, setHasNft] = useState(false);
-    const [isRegisteredToContract, setIsRegisteredToContract] = useState(false);
+    const [isRegisteredToWhitelist, setIsRegisteredToWhitelist] = useState(false);
 
     const handleSave = () => {
         toast(<Msg msg="Your asset has been saved" />);
     };
 
-    const mintNFTNEAR = async () => {
-        if (!state.profile.iswalletConnect || !isRegisteredToContract) {
+    const processMintNFT = async (e) => {
+        e.preventDefault()
+        if (!state.profile.iswalletConnect) {
             toast(<Msg msg="First connect to your wallet" />);
             return;
         }
-        await window.contract.nft_mint(
-            {
-                token_id: `${window.accountId}-test-token`,
-                metadata: {
-                    title: 'Reitio 3D NFT',
-                    description: 'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
-                    media: 'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/'
-                },
-                receiver_id: window.accountId
-            },
-            300000000000000,
-            new BN("1000000000000000000000000")
-        );
+        if (!isRegisteredToWhitelist) {
+            toast(<Msg msg="You are not allowed to mint NFT" />)
+            return
+        }
 
+        await mintNFTNEAR(
+            `${window.accountId}-test-token`,
+            'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
+            'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/',
+            window.accountId
+        )
     };
 
     useEffect(() => {
-        async function fetchData(){
-               
+        async function fetchData() {
+            const isEnabled = await getPermissionForMintNFT(window.accountId)
+            console.log(window.accountId, isEnabled)
+            setIsRegisteredToWhitelist(isEnabled)
         }
         fetchData();
 
@@ -353,10 +354,7 @@ const DeployContainer = () => {
                     </BottomBtn>
                     <BottomBtn
                         $active
-                        onClick={(e) => {
-                            e.preventDefault();
-                            mintNFTNEAR();
-                        }}
+                        onClick={(e) => processMintNFT(e)}
                     >
                         Deploy
                     </BottomBtn>
