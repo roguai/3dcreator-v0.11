@@ -256,7 +256,6 @@ const DeployContainer = () => {
     useEffect(() => {
         async function fetchData() {
             const isEnabled = await getPermissionForMintNFT(window.accountId)
-            console.log(window.accountId, isEnabled)
             setIsRegisteredToWhitelist(isEnabled)
         }
         fetchData();
