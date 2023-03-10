@@ -2,6 +2,7 @@ import styled, { css, useTheme } from "styled-components";
 import { useEffect, useState } from "react";
 import { ReactComponent as MultiFolderIcon } from '../../assets/images/Multi-Folder.svg';
 import { ReactComponent as EditIcon } from '../../assets/images/Edit.svg';
+import {ReactComponent as GenerateIcon} from '../../assets/images/generate-reitio-01.svg';
 import searchIcon from '../../assets/images/search.png';
 import CharactorCard from "./CharactorCard";
 import models from "./models";
@@ -31,7 +32,7 @@ const MainBtn = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 8px 52.5px;
+    padding: 8px;
     gap: 5px;
     & .text{
         font-size:12px;
@@ -312,6 +313,16 @@ const AssetContainer = () => {
                 >
                     <EditIcon fill={!templateBtn ? theme.colors.mainColor : 'rgba(255, 255, 255, 0.46)'} />
                     <p className="text">Customize</p>
+                </MainBtn>
+                <MainBtn
+                    // $active={!templateBtn}
+                    $disabled={true}
+                    onClick={() => {
+                       
+                    }}
+                >
+                    <GenerateIcon />
+                    <p className="text">Generate</p>
                 </MainBtn>
             </MainBtnGroup>
             <CharactorBtnGroup>

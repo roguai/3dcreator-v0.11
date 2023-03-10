@@ -133,7 +133,7 @@ const AssetsCard=(props)=>{
                 <Button 
                     style={{background:'#3B82F6'}} 
                     to={{
-                        pathname:'/assetcreator',
+                        pathname:'/',
                         
                     }}
                     state={modelid}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -10,7 +10,9 @@ import { ReactComponent as InformIcon } from '../../assets/images/Information-ci
 import { ReactComponent as ArrowDownIcon } from '../../assets/images/arrow-down.svg';
 import { ReactComponent as CloseIcon } from '../../assets/images/Close.svg';
 import { ReactComponent as CheckIcon } from '../../assets/images/checkicon.svg';
-const BN=require('bn.js');
+import { useGlobalContext } from "../App/context";
+import { mintNFTNEAR } from "../../chaintools/near";
+import { getPermissionForMintNFT } from "../../api/whitelist";
 
 const Conatiner = styled.div`
     width:320px;
@@ -62,7 +64,7 @@ const MainBtn = styled.div`
     }
 `;
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     width:320px;
     position:absolute;
     top:89px;
@@ -207,11 +209,11 @@ const MsgContainer = styled.div`
         margin-top: 3px;
     }
 `;
-const Msg = ({closeToast}) => (
+const Msg = ({ closeToast, msg }) => (
     <MsgContainer>
         <CheckIcon id="check" />
-        Your asset has been saved
-        <CloseIcon 
+        {msg}
+        <CloseIcon
             id="close"
             onClick={closeToast}
         />
@@ -220,30 +222,47 @@ const Msg = ({closeToast}) => (
 
 const DeployContainer = () => {
     const theme = useTheme();
+    const { state } = useGlobalContext();
     const [deployBtn, setDeployBtn] = useState(true);
     const [displayName, setDisplayName] = useState('');
     const [description, setDescription] = useState('');
+    const [userCounter, setUserCounter] = useState(0);
+    const [hasNft, setHasNft] = useState(false);
+    const [isRegisteredToWhitelist, setIsRegisteredToWhitelist] = useState(false);
 
     const handleSave = () => {
-        toast(<Msg />);
-    }
+        toast(<Msg msg="Your asset has been saved" />);
+    };
 
-    const mintNFTNEAR=async()=>{
-        await window.contract.nft_mint(
-            {
-                token_id:`${window.accountId}-test-token`,
-                metadata:{
-                    title:'Reitio NFT test',
-                    description:'Game item',
-                    media:'https://bafkreigt3tlnsn2skhslgv4kdta2zbvoebwavxv3novb7kszlkzgmqjzmq.ipfs.nftstorage.link/'
-                },
-                receiver_id:window.accountId
-            },
-            300000000000000,
-            new BN("1000000000000000000000000")
+    const processMintNFT = async (e) => {
+        e.preventDefault()
+        if (!state.profile.iswalletConnect) {
+            toast(<Msg msg="First connect to your wallet" />);
+            return;
+        }
+        if (!isRegisteredToWhitelist) {
+            toast(<Msg msg="You are not allowed to mint NFT" />)
+            return
+        }
 
+        await mintNFTNEAR(
+            `${window.accountId}-test-token`,
+            'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
+            'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/',
+            window.accountId
         )
-    }
+    };
+
+    useEffect(() => {
+        async function fetchData() {
+            const isEnabled = await getPermissionForMintNFT(window.accountId)
+            console.log(window.accountId, isEnabled)
+            setIsRegisteredToWhitelist(isEnabled)
+        }
+        fetchData();
+
+    }, [state.profile]);
+
     return (
         <Conatiner>
             <ToastContainer
@@ -251,8 +270,8 @@ const DeployContainer = () => {
                 autoClose="3000"
                 hideProgressBar={true}
                 style={{
-                    width:'433px',
-                    
+                    width: '433px',
+
                 }}
             />
             <MainBtnGroup>
@@ -324,10 +343,10 @@ const DeployContainer = () => {
                         <p>REIGN</p>
                     </StyledInput>
                 </InputGroup>
-
                 <BtnGroup>
                     <BottomBtn
-                        onClick={() => {
+                        onClick={(e) => {
+                            e.preventDefault();
                             handleSave();
                         }}
                     >
@@ -335,10 +354,7 @@ const DeployContainer = () => {
                     </BottomBtn>
                     <BottomBtn
                         $active
-                        onClick={()=>{
-                            handleSave();
-                            mintNFTNEAR();
-                        }}
+                        onClick={(e) => processMintNFT(e)}
                     >
                         Deploy
                     </BottomBtn>

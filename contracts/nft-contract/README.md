@@ -7,5 +7,5 @@ cargo build --target wasm32-unknown-unknown --release
 ```
 near login
 
-near deploy --wasmFile main.wasm --accountId contract.mynftcontract1.testnet
+near deploy --wasmFile ./target/wasm32-unknown-unknown/release/nft_simple.wasm --accountId contract.mynftcontract1.testnet
 ```

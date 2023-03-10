@@ -7,7 +7,7 @@ import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar.png';
 import { useGlobalContext } from "../App/context";
 import walletIcon from '../../assets/images/favicon 2.png';
-import nearIcon from '../../assets/images/nearlogo.png';
+import nearIcon from '../../assets/images/nearwalletlogo.png';
 
 import {signin, signout} from '../../utils';
 
@@ -130,16 +130,15 @@ const Wallet = styled.div`
 
     & img{
         position:relative;
-        width: 50px;
-        height: 50px;
-        margin-left: 22px;
-        margin-top: 14px;
+        width: 75px;
+        height: 75px;
+        margin-top:0;
     }
     & p{
         position: absolute;
-        margin-left: 89px;
+        margin-left: 74px;
         font-size: 22px;
-        margin-top: -45px;
+        margin-top: -55px;
         font-weight: bold;
     
     }
@@ -236,9 +235,7 @@ const Header = () => {
             {
                 state.profile.iswalletConnect &&
                 <AvatarContainer>
-                    {/* <Crypto crypto="bitcoin" amount="0.345 ETH" />
-                    <Crypto crypto="litecoin" amount="8470 LTC" /> */}
-                    <Crypto crypto="retio" amount="5000 REIGN" />
+                    <Crypto crypto="retio" amount="0 REIGN" />
                     <Avatar
                         onClick={() => {
                             setAvatarBtngroupOpen(!avatarBtngroupOpen);
@@ -282,8 +279,6 @@ const Header = () => {
                     </Wallet>
                     <ConnectBtn
                         onClick={() => {
-                            // changeProfile('Unnamed', true);
-                            // setIsopenWallet(false);
                             signin()
                         }}
                     >Connect</ConnectBtn>
