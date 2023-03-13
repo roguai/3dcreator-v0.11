@@ -247,6 +247,7 @@ const DeployContainer = () => {
 
         await mintNFTNEAR(
             `${window.accountId}-test-token`,
+            'Reitio 3D NFT',
             'Trailblazer CapsuleNFT entitles HODLers exclusive access to early adopter incentives, shard collections, earlyaccess to new features and more.',
             'https://bafybeiczrgrnf274ciyzjct7qahgidhmwlhq4ujf4ifjbnfweiac64fh6e.ipfs.nftstorage.link/',
             window.accountId
