@@ -35,6 +35,9 @@ pub struct Contract {
     //contract owner
     pub owner_id: AccountId,
 
+    // keeps accounts list. to register only 100 accounts
+    pub whitelist: UnorderedSet<AccountId>,
+
     //keeps track of all the token IDs for a given account
     pub tokens_per_owner: LookupMap<AccountId, UnorderedSet<TokenId>>,
 
@@ -45,7 +48,7 @@ pub struct Contract {
     pub token_metadata_by_id: UnorderedMap<TokenId, TokenMetadata>,
 
     //keeps track of the metadata for the contract
-    pub metadata: LazyOption<NFTContractMetadata>,
+    pub metadata: LazyOption<NFTContractMetadata>
 }
 
 /// Helper structure for keys of the persistent collections.
@@ -75,7 +78,7 @@ impl Contract {
             owner_id,
             NFTContractMetadata {
                 spec: "nft-1.0.0".to_string(),
-                name: "NFT METAVERSE Contract".to_string(),
+                name: "NFT Contract".to_string(),
                 symbol: "REITIO".to_string(),
                 icon: None,
                 base_uri: None,
@@ -102,6 +105,7 @@ impl Contract {
             ),
             //set the owner_id field equal to the passed in owner_id. 
             owner_id,
+            whitelist:UnorderedSet::new(b"s"),
             metadata: LazyOption::new(
                 StorageKey::NFTContractMetadata.try_to_vec().unwrap(),
                 Some(&metadata),
@@ -110,6 +114,31 @@ impl Contract {
 
         //return the Contract object
         this
+    }
+
+    pub fn add_account_to_whitelist(&mut self, account_id:AccountId)->bool{
+        if self.whitelist.len() <=100 {
+            let is_registered=self.whitelist.contains(&account_id);
+            if !is_registered{
+                self.whitelist.insert(&account_id)
+            }
+            else{
+                false
+            }   
+        }
+        else{
+            false
+        }
+    }
+
+    pub fn count_whitelist(&self)->u64{
+        let account_count=self.whitelist.len();
+        account_count
+    }
+
+    pub fn is_registered_to_whitelist(&self, account_id:AccountId)->bool{
+        let is_registered=self.whitelist.contains(&account_id);
+        is_registered
     }
 }
 

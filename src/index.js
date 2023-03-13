@@ -23,7 +23,7 @@ window.nearInitPromise = initContract().then(() => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<App />}>
-            <Route index path='/assetcreator' element={<AssetCreator />} />
+            <Route index element={<AssetCreator />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='*' element={<ErrorPage />} />
           </Route>
