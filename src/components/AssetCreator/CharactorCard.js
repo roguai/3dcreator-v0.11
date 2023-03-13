@@ -80,33 +80,33 @@ const Badge = styled.div`
 
 const CharactorCard = ({ data }) => {
     const { img, name, team, badge, btnText, iscustomize, customizable } = data;
-    const {changeCurrentModel, changeModelcustomize}=useGlobalContext();
-    
-    const handleClick=()=>{
-        if(!iscustomize){
-            const {Preview, category}=data;
-            changeCurrentModel({Preview:Preview, customizable:customizable, category:category});
+    const { changeCurrentModel, changeModelcustomize } = useGlobalContext();
+
+    const handleClick = () => {
+        if (!iscustomize) {
+            const { Preview, category } = data;
+            changeCurrentModel({ Preview: Preview, customizable: customizable, category: category });
         }
-        else{
-            const {category, val}=data;
-            let v={};
-            if(category==='wing'){
-                v={wing:val}
+        else {
+            const { category, val } = data;
+            let v = {};
+            if (category === 'wing') {
+                v = { wing: val }
             }
-            else if(category==='ear'){
-                v={ear:val}
+            else if (category === 'ear') {
+                v = { ear: val }
             }
-            else if(category==='glass'){
-                v={glass:val}
+            else if (category === 'glass') {
+                v = { glass: val }
             }
-            else if(category==='color'){
-                v={color:val}
+            else if (category === 'color') {
+                v = { color: val }
             }
-            else if(category==='roofbox'){
-                v={roofbox:val}
+            else if (category === 'roofbox') {
+                v = { roofbox: val }
             }
-            else if(category==='spoiler'){
-                v={spoiler:val}
+            else if (category === 'spoiler') {
+                v = { spoiler: val }
             }
             changeModelcustomize(v);
         }
