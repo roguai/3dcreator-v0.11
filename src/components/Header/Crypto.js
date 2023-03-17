@@ -6,6 +6,9 @@ import litecoin from '../../assets/images/LiteCoin-3.png';
 import plusicon from '../../assets/images/plus.png';
 import {ReactComponent as RetioWalletIcon} from '../../assets/images/reitio-wallet-logo 2.svg';
 import retioIcon from '../../assets/images/reitio-wallet-logo 2.png';
+import rogualIcon from '../../assets/images/coin1.png';
+
+
 
 const Container = styled.div`
     display: flex;
@@ -16,9 +19,10 @@ const Container = styled.div`
 `;
 
 const Coin = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     margin-right: 4px;
+    margin-top:2px;
 `;
 
 const Plus = styled.img`
@@ -39,7 +43,7 @@ const Crypto = ({ crypto, amount }) => {
     const cryptImg = crypto === 'bitcoin' ? bitcoin : crypto==='litecoin' ? litecoin:retioIcon;
     return (
         <Container>
-            <Coin src={cryptImg} />
+            <Coin src={rogualIcon} />
             <div>{amount}</div>
             <PlusBtn>
                 <Plus src={plusicon} />

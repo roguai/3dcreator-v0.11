@@ -3,20 +3,20 @@ export const theme={
     default:{
         colors:{
             bgMain:'#0c1217',
-            progressbar1:'#E02E2E',
-            progress1:'rgba(224, 46, 46, 0.2)',
+            progressbar1:'#ddff00',
+            progress1:'rgba(221, 255, 0, 0.2)',
             sidebarbg:'rgba(0, 8, 20, 0.68)',
-            mainColor:'#E02E2E',
+            mainColor:'#ddff00',
             hoverColor:'rgba(224, 46, 46, 0.08)'
         }
     },
     yellow:{
         colors:{
-            bgMain:'#1E1E1E',
-            progressbar1:'#E02E2E',
-            progress1:'rgba(224, 46, 46, 0.2)',
+            bgMain:'linear-gradient(180deg, #000000 0%, rgba(91, 134, 229, 0.8) 100%)',
+            progressbar1:'#ddff00',
+            progress1:'rgba(221, 255, 0, 0.2)',
             sidebarbg:'rgba(0, 8, 20, 0.68)',
-            mainColor:'#E02E2E',
+            mainColor:'#ddff00',
             hoverColor:'rgba(224, 46, 46, 0.08)'
         }
     }

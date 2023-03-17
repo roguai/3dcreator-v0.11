@@ -80,66 +80,66 @@ import Supercar from '../../assets/models/templates/Cars/Supercar';
 
 const charactorList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Runner',
         img:cha5,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Human1 position={[0,-1,0]} scale={0.07} {...props}/>,
         iscustomize:false,
         customizable:true,
         category:'human'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Bob',
         img:cha6,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Human2 position={[0,-1,0]} {...props}/>,
         iscustomize:false,
         customizable:true,
         category:'human'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Cyperpunk zaura',
         img:cha2,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Cyperpunkzaura position={[0,-1,0]} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mega robot',
         img:cha3,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Expeditionmecha scale={0.01} position={[0,-1,0]} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot man',
         img:cha1,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Robotman position={[0,-1,0]} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot Dinosaur',
         img:cha4,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><RobotDinosaur position={[0,-1,0]} scale={0.7} {...props}/>,
         iscustomize:false,
         customizable:false,
@@ -150,66 +150,66 @@ const charactorList=[
 
 const animalList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Cat',
         img:cat1,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Cat1 position={[0,-1,0]} scale={0.03} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Dog',
         img:dog1,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Dog1 position={[0,-0.7,0]} scale={0.3} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Horse',
         img:horse,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Horse position={[0,-1,0]} scale={0.01} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Kitten',
         img:kitten,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Kitten position={[0,-1,0]} scale={0.1} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Rabbit',
         img:rabbit,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Rabbit position={[0,-1,0]} scale={15} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Robot dog',
         img:robotdog,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><RobotDog position={[0,-0.7,0]} scale={0.8} {...props}/>,
         iscustomize:false,
         customizable:false,
@@ -219,66 +219,66 @@ const animalList=[
 
 const carList=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'4 Door',
         img:door4,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Door4 position={[0,-1,0]} scale={0.004} {...props}/>,
         iscustomize:false,
         customizable:true,
         category:'car'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Futuristic car',
         img:futuristiccar,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Futuristiccar position={[0,-1,0]} scale={0.2} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Hyper concept',
         img:hyperconceptcar,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Hyperconceptcar position={[0,-1,0]} scale={0.1} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Modern super car',
         img:modernsupercar,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Modernsupercar position={[0,-1,0]} scale={0.4} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Selva hyper car',
         img:selvahypercar,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Selvahypercar position={[0,-1,0]} scale={0.4} {...props}/>,
         iscustomize:false,
         customizable:false,
         category:''
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Super car',
         img:supercar,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         Preview:(props)=><Supercar position={[0,-1,0]} scale={0.07} {...props}/>,
         iscustomize:false,
         customizable:false,
@@ -299,7 +299,7 @@ const templates={
 const colors=[
 
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Red',
         img:colorcard1,
         badge:'',
@@ -309,51 +309,51 @@ const colors=[
         val:'#eb5757'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Orange',
         img:colorcard2,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'color',
         val:'#f2994a'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Yellow',
         img:colorcard3,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'color',
         val:'#f2c94c'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Dark green',
         img:colorcard4,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'color',
         val:'#219653'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Green',
         img:colorcard5,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'color',
         val:'#27ae60'
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Light green',
         img:colorcard6,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'color',
         val:'#6fcf97'
@@ -362,7 +362,7 @@ const colors=[
 ];
 const glasses=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -372,41 +372,41 @@ const glasses=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Glasses 1',
         img:glasscard2,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'glass',
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Glasses 2',
         img:glasscard3,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'glass',
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mask 1',
         img:glasscard4,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'glass',
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Mask 2',
         img:glasscard5,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'glass',
         val:4
@@ -414,7 +414,7 @@ const glasses=[
 ];
 const wings=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -424,41 +424,41 @@ const wings=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 1',
         img:wingcard1,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'wing',
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 2',
         img:wingcard2,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'wing',
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 3',
         img:wingcard3,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'wing',
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Wing 4',
         img:wingcard4,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'wing',
         val:4
@@ -466,7 +466,7 @@ const wings=[
 ];
 const headphone=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -476,41 +476,41 @@ const headphone=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 1',
         img:earcard1,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'ear',
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 2',
         img:earcard2,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'ear',
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 3',
         img:earcard3,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'ear',
         val:3
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Headphone 4',
         img:earcard4,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'ear',
         val:4
@@ -520,7 +520,7 @@ const headphone=[
 
 const roofbox=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -530,11 +530,11 @@ const roofbox=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Roofbox',
         img:roofboxcard,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'roofbox',
         val:1
@@ -542,7 +542,7 @@ const roofbox=[
 ];
 const spoiler=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Default',
         img:defaultcard,
         badge:'',
@@ -552,31 +552,31 @@ const spoiler=[
         val:0
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 1',
         img:spoilercard1,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'spoiler',
         val:1
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 2',
         img:spoilercard2,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'spoiler',
         val:2
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Spoiler 3',
         img:spoilercard3,
         badge:'Premium',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
         iscustomize:true,
         category:'spoiler',
         val:3
@@ -584,18 +584,18 @@ const spoiler=[
 ]
 const masks=[
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Without mask',
         img:defaultcard,
         badge:'',
         btnText:'Default',
     },
     {
-        team:'Reitio team',
+        team:'Roguai team',
         name:'Gas mask',
         img:mask1,
         badge:'',
-        btnText:'0.44 REIGN',
+        btnText:'0.44 ROGU',
     },
 ];
 const hair=[];
